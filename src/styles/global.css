@@ -1,9 +1,37 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes: dark --default, light;
   root: ":root";
   logs: false;
+}
+
+:root[data-theme="dark"] {
+  --color-primary: oklch(65% 0.19 245);
+  --color-primary-content: oklch(98% 0.01 245);
+  --color-secondary: oklch(64% 0.18 35);
+  --color-secondary-content: oklch(98% 0.01 35);
+  --color-accent: oklch(72% 0.13 210);
+  --color-accent-content: oklch(16% 0.02 245);
+  --color-neutral: oklch(24% 0.02 245);
+  --color-neutral-content: oklch(92% 0.01 245);
+  --color-base-100: oklch(13% 0.02 245);
+  --color-base-200: oklch(17% 0.02 245);
+  --color-base-300: oklch(23% 0.025 245);
+  --color-base-content: oklch(94% 0.01 245);
+  --color-info: oklch(70% 0.15 230);
+  --color-success: oklch(72% 0.14 155);
+  --color-warning: oklch(78% 0.16 75);
+  --color-error: oklch(68% 0.18 25);
+}
+
+:root[data-theme="light"] {
+  --color-primary: oklch(48% 0.19 245);
+  --color-primary-content: oklch(98% 0.01 245);
+  --color-secondary: oklch(56% 0.18 35);
+  --color-secondary-content: oklch(98% 0.01 35);
+  --color-accent: oklch(54% 0.13 210);
+  --color-accent-content: oklch(98% 0.01 210);
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

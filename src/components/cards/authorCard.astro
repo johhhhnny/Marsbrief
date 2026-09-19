@@ -7,14 +7,15 @@ type Props = {
 
 const { author } = Astro.props;
 
-const imageProps = typeof author.data.avatar === "string" 
-  ? { src: author.data.avatar } 
-  : { src: author.data.avatar };
+const imageProps =
+  typeof author.data.avatar === "string"
+    ? { src: author.data.avatar }
+    : { src: author.data.avatar };
 ---
 
 <li class="group relative isolate mx-auto w-full">
   <Image
-    class="w-320 aspect-square max-w-full object-cover filter grayscale group-hover:grayscale-0 rounded-md"
+    class="mx-auto aspect-square w-full max-w-[320px] rounded-full object-cover filter grayscale group-hover:grayscale-0"
     {...imageProps}
     alt={author.data.name}
     layout="constrained"

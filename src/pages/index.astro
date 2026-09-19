@@ -13,24 +13,38 @@ if (!entry) {
 ---
 
 <BaseLayout entry={entry}>
-  <section class="container pt-12 pb-8 md:pt-20 md:pb-14">
-    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-      MARS BRIEF
-    </p>
-    <h1
-      class="mt-4 max-w-3xl text-4xl font-serif font-bold leading-tight md:text-6xl"
-    >
-      看见新闻背后的世界
-    </h1>
-    <p class="mt-5 max-w-2xl text-lg leading-8 text-base-content/70">
-      从 Musk
-      出发，看懂正在形成的未来世界。我们不只是报道新闻，我们提供关于科技、商业与未来的高密度情报。
-    </p>
-    <div class="mt-7 flex flex-wrap gap-3">
-      <a class="btn btn-primary" href="/articles">探索深度分析</a>
-      <a class="btn btn-outline" href="mailto:brief@marsbrief.com"
-        >订阅每周精选</a
-      >
+  <section class="bg-neutral-950 text-white">
+    <div class="w-full overflow-hidden border-b border-white/10">
+      <img
+        src="/brand/marsbrief-hero.png"
+        alt="火星简报 MARS BRIEF：地球、火星与飞向未来的火箭"
+        class="block h-auto w-full"
+      />
+    </div>
+    <div class="container py-10 md:py-14">
+      <div class="max-w-3xl">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200"
+        >
+          火星简报 MARS BRIEF
+        </p>
+        <h1
+          class="mt-4 text-4xl font-serif font-bold leading-tight md:text-6xl"
+        >
+          看见新闻背后的世界
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-white/75">
+          从 Musk
+          出发，看懂正在形成的未来世界。我们不只是报道新闻，我们提供关于科技、商业与未来的高密度情报。
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="/articles">探索深度分析</a>
+          <a
+            class="btn btn-outline border-white/70 text-white hover:border-white hover:bg-white hover:text-black"
+            href="mailto:brief@marsbrief.com">订阅每周精选</a
+          >
+        </div>
+      </div>
     </div>
   </section>
   <div class="container border-y border-primary-content/20 py-6">

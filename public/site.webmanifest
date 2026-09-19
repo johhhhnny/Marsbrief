@@ -1,21 +1,21 @@
 {
-  "name": "Astro News",
-  "short_name": "Astro News",
+  "name": "火星简报 MARS BRIEF",
+  "short_name": "火星简报",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
-      "sizes": "192x192",
+      "src": "/brand/marsbrief-logo.png",
+      "sizes": "any",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
+      "src": "/brand/marsbrief-logo.png",
+      "sizes": "any",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#0b1018",
+  "background_color": "#0b1018",
   "display": "standalone"
 }

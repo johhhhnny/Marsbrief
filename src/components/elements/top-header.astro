@@ -11,10 +11,24 @@ import ThemeController from "../bases/theme-controller.astro";
 >
   <div class="navbar-start lg:w-1/2">
     <MenuDropdown />
-    <a class="text-xl px-2 text-nowrap lg:hidden" href="/">{SITE.title}</a>
+    <a class="flex items-center gap-2 px-2 text-nowrap lg:hidden" href="/">
+      <img
+        src="/brand/marsbrief-logo.png"
+        alt="火星简报 MARS BRIEF"
+        class="size-9 rounded-full object-cover"
+      />
+      <span class="text-lg">{SITE.title}</span>
+    </a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <a class="text-xl px-2" href="/">{SITE.title}</a>
+    <a class="flex items-center gap-2 px-2" href="/">
+      <img
+        src="/brand/marsbrief-logo.png"
+        alt="火星简报 MARS BRIEF"
+        class="size-9 rounded-full object-cover"
+      />
+      <span class="text-xl">{SITE.title}</span>
+    </a>
   </div>
   <div class="navbar-end">
     <ThemeController />

@@ -1,7 +1,6 @@
 ---
 import { categoriesHandler } from "@/lib/handlers/categories";
 import { SOCIAL_LINKS, OTHER_LINKS } from "@/lib/config";
-import Hashtag from "@/assets/svgs/hashtag.astro";
 import Icon from "../bases/icon.astro";
 
 const categories = categoriesHandler.allCategories();
@@ -13,9 +12,13 @@ const categories = categoriesHandler.allCategories();
   <div class="container">
     <div class="flex flex-col gap-4">
       <aside class="flex items-center gap-2">
-        <Hashtag />
+        <img
+          src="/brand/marsbrief-logo.png"
+          alt="火星简报 MARS BRIEF"
+          class="size-12 rounded-full object-cover"
+        />
         <p>
-          <strong class="text-lg">MARS BRIEF</strong>
+          <strong class="text-lg">火星简报 MARS BRIEF</strong>
           <br />
           从 Musk 出发，看懂正在形成的未来世界。
         </p>
