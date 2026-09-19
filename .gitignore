@@ -41,6 +41,13 @@ pnpm-debug.log*
 *.sw?
 .vscode/
 
+# 允许保留 VS Code 共享配置，但忽略个人临时状态
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # ========================
 # 操作系统生成文件 (OS Files)
 # ========================

@@ -13,29 +13,30 @@ if (!entry) {
 ---
 
 <BaseLayout entry={entry}>
-  <div class="container mt-4">
-    <div
-      class="bg-warning/10 border-l-4 border-warning p-4 rounded-r-lg text-sm flex items-start gap-3"
+  <section class="container pt-12 pb-8 md:pt-20 md:pb-14">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+      MARS BRIEF
+    </p>
+    <h1
+      class="mt-4 max-w-3xl text-4xl font-serif font-bold leading-tight md:text-6xl"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-5 text-warning shrink-0 mt-0.5"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+      看见新闻背后的世界
+    </h1>
+    <p class="mt-5 max-w-2xl text-lg leading-8 text-base-content/70">
+      从 Musk
+      出发，看懂正在形成的未来世界。我们不只是报道新闻，我们提供关于科技、商业与未来的高密度情报。
+    </p>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="/articles">探索深度分析</a>
+      <a class="btn btn-outline" href="mailto:brief@marsbrief.com"
+        >订阅每周精选</a
       >
-        <circle cx="12" cy="12" r="10" />
-        <line x1="12" x2="12" y1="8" y2="12" />
-        <line x1="12" x2="12.01" y1="16" y2="16" />
-      </svg>
-      <p class="text-base-content/80">
-        <span class="font-bold text-base-content">重要声明：</span>
-        本站分享的杠杆 ETF 及期权交易策略仅供学习研究，不构成任何投资建议。杠杆产品风险极高，投资需独立思考并谨慎决策。
-      </p>
     </div>
+  </section>
+  <div class="container border-y border-primary-content/20 py-6">
+    <p class="max-w-3xl text-base leading-7 text-base-content/75">
+      在信息过载的时代，您最需要的不是更多的信息，而是清晰的洞察。我们筛选信号、连接因果，并明确区分事实、公司声称与分析判断。
+    </p>
   </div>
   <Headlines />
   <LatestNews />

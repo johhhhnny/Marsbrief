@@ -1,11 +1,11 @@
 import type { Link } from "../types";
 
 export const SITE = {
-  title: "3x-Alpha",
-  description: "一个关于杠杆、期权与底层认知进化的深度思考空间。",
-  author: "3x-Alpha Team",
-  url: "https://3x-alpha.com",
-  github: "https://github.com/johhhhnny/3x-Alpha",
+  title: "MARS BRIEF",
+  description: "从 Musk 出发，看懂正在形成的未来世界。",
+  author: "Mars Brief 编辑部",
+  url: "https://marsbrief.com",
+  github: "",
   locale: "zh-CN",
   dir: "ltr",
   charset: "UTF-8",
@@ -15,20 +15,20 @@ export const SITE = {
 
 export const NAVIGATION_LINKS: Link[] = [
   {
-    href: "/categories/etf",
-    text: "杠杆 ETF",
+    href: "/articles",
+    text: "深度分析",
   },
   {
-    href: "/categories/options",
-    text: "期权策略",
+    href: "/categories/log",
+    text: "每日精选",
   },
   {
-    href: "/categories/market",
-    text: "市场分析",
+    href: "/categories/musk",
+    text: "Musk 生态",
   },
   {
-    href: "/categories/portfolio",
-    text: "组合展示",
+    href: "/categories/ai",
+    text: "AI 与机器人",
   },
 ];
 
@@ -58,34 +58,24 @@ export const OTHER_LINKS: Link[] = [
     text: "Cookie 政策",
   },
   {
-    href: "https://3x-alpha.com/rss.xml",
+    href: "/rss.xml",
     text: "RSS 订阅",
   },
   {
-    href: "https://3x-alpha.com/sitemap-index.xml",
+    href: "/sitemap-index.xml",
     text: "站点地图",
   },
 ];
 
 export const SOCIAL_LINKS: Link[] = [
   {
-    href: "https://github.com",
-    text: "GitHub",
-    icon: "github",
-  },
-  {
-    href: "https://t.me",
-    text: "Telegram",
-    icon: "telegram",
-  },
-  {
-    href: "https://twitter.com",
-    text: "Twitter (X)",
+    href: "https://x.com",
+    text: "X",
     icon: "newTwitter",
   },
   {
-    href: "https://www.facebook.com",
-    text: "Facebook",
-    icon: "facebook",
+    href: "https://www.youtube.com",
+    text: "YouTube",
+    icon: "telegram",
   },
 ];

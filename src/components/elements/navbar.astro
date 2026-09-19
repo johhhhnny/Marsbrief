@@ -8,7 +8,8 @@ const categories = categoriesHandler.allCategories();
 <nav class="navbar-center hidden lg:flex container">
   <ul class="menu menu-sm menu-horizontal px-1 mx-auto">
     <NavbarItem item={{ href: "/", text: "首页" }} />
-    <NavbarItem item={{ href: "/articles", text: "所有文章" }} />
+    <NavbarItem item={{ href: "/articles", text: "深度分析" }} />
+    <NavbarItem item={{ href: "/categories/log", text: "每日精选" }} />
     {
       categories.map((category) => (
         <NavbarItem
