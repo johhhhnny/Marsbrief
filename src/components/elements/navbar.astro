@@ -2,14 +2,13 @@
 import { categoriesHandler } from "@/lib/handlers/categories";
 import NavbarItem from "../bases/navbar-item.astro";
 
-const categories = categoriesHandler.allCategories();
+const categories = await categoriesHandler.allCategories();
 ---
 
 <nav class="navbar-center hidden lg:flex container">
   <ul class="menu menu-sm menu-horizontal px-1 mx-auto">
     <NavbarItem item={{ href: "/", text: "首页" }} />
     <NavbarItem item={{ href: "/articles", text: "深度分析" }} />
-    <NavbarItem item={{ href: "/categories/log", text: "每日精选" }} />
     {
       categories.map((category) => (
         <NavbarItem

@@ -8,18 +8,22 @@ export const categoriesKs = collection({
   schema: {
     title: fields.slug({
       name: {
-        label: "Title",
-        description: "The title of the category.",
+        label: "Title (分类名称)",
+        description: "分类的显示标题，例如：Musk 生态、人工智能。",
+      },
+      slug: {
+        label: "Slug (标识/目录名)",
+        description: "分类的英文标识，用于生成目录名。请使用小写英文或短横线（如 muskempire, ai, fsd）。",
       },
     }),
     path: fields.text({
-      label: "Path",
-      description: "The URL path for this category (e.g., 'wisdom').",
+      label: "Path (URL 路径)",
+      description: "页面的 URL 路径，建议与 Slug 保持完全一致（如 muskempire, ai, fsd）。",
       validation: {
         isRequired: true,
         pattern: {
           regex: /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-          message: "Must be a slug (lowercase, numbers, hyphens)",
+          message: "必须为小写字母、数字或短横线（如 wisdom, ai, muskempire）",
         },
       },
     }),

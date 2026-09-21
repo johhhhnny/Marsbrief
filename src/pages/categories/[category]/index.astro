@@ -1,12 +1,28 @@
 ---
 import { categoriesHandler } from "@/lib/handlers/categories";
 
-export function getStaticPaths() {
-  const categories = categoriesHandler.allCategories();
-  return categories.map((category) => ({ params: { category: category.id } }));
+export async function getStaticPaths() {
+  const categories = await categoriesHandler.allCategories();
+  return categories.flatMap((category) => {
+    const list = [
+      {
+        params: { category: category.data.path },
+        props: { redirectTarget: category.data.path },
+      },
+    ];
+    if (category.id !== category.data.path) {
+      list.push({
+        params: { category: category.id },
+        props: { redirectTarget: category.data.path },
+      });
+    }
+    return list;
+  });
 }
 
+const { redirectTarget } = Astro.props;
 const { category } = Astro.params;
+const target = redirectTarget || category;
 ---
 
-<meta http-equiv="refresh" content={`0; url=${`/categories/${category}/1`}`} />
+<meta http-equiv="refresh" content={`0; url=${`/categories/${target}/1`}`} />

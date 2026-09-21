@@ -3,7 +3,7 @@ import NewsCard from "@/components/cards/newsCard.astro";
 import HeaderSection from "./headerSection.astro";
 import { articlesHandler } from "@/lib/handlers/articles";
 
-const articles = articlesHandler.allArticles();
+const articles = await articlesHandler.allArticles();
 ---
 
 {

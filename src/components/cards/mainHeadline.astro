@@ -14,7 +14,7 @@ const { article } = Astro.props;
 
 const { remarkPluginFrontmatter } = await render(article);
 
-const category = categoriesHandler.oneCategory(article.data.category.id);
+const category = await categoriesHandler.oneCategory(article.data.category.id);
 
 const imageProps =
   typeof article.data.cover === "string"

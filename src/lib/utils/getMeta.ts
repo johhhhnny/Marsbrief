@@ -24,7 +24,7 @@ export const getMeta = async (
       }
 
       const { remarkPluginFrontmatter } = await render(collection);
-      const authors = authorsHandler.getAuthors(collection.data.authors);
+      const authors = await authorsHandler.getAuthors(collection.data.authors);
 
       const meta: ArticleMeta = {
         title: `${capitalizeFirstLetter(collection.data.title)} - ${SITE.title}`,

@@ -3,7 +3,7 @@ import { categoriesHandler } from "@/lib/handlers/categories";
 import { SOCIAL_LINKS, OTHER_LINKS } from "@/lib/config";
 import Icon from "../bases/icon.astro";
 
-const categories = categoriesHandler.allCategories();
+const categories = await categoriesHandler.allCategories();
 ---
 
 <footer
@@ -28,7 +28,6 @@ const categories = categoriesHandler.allCategories();
       >
         <a href="/" class="link link-hover">首页</a>
         <a href="/articles" class="link link-hover">深度分析</a>
-        <a href="/categories/log" class="link link-hover">每日精选</a>
         {
           categories.map((category) => (
             <a

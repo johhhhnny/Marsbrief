@@ -1,17 +1,24 @@
 import { getCollection } from "astro:content";
 
-const authorsCollection = await getCollection("authors");
-
 export const authorsHandler = {
-  allAuthors: () => authorsCollection,
-  limitAurhors: (limit: number) => authorsCollection.slice(0, limit),
-  getAuthors: (authors: { collection: string; id: string }[]) => {
-    return authors.map(({ id }) => {
-      const author = authorsCollection.find((author) => author.id === id);
-      return author || null;
-    }).filter(author => author !== null);
+  allAuthors: async () => {
+    return await getCollection("authors");
   },
-  findAuthor: (id: string) => {
+  limitAurhors: async (limit: number) => {
+    const authorsCollection = await getCollection("authors");
+    return authorsCollection.slice(0, limit);
+  },
+  getAuthors: async (authors: { collection: string; id: string }[]) => {
+    const authorsCollection = await getCollection("authors");
+    return authors
+      .map(({ id }) => {
+        const author = authorsCollection.find((author) => author.id === id);
+        return author || null;
+      })
+      .filter((author) => author !== null);
+  },
+  findAuthor: async (id: string) => {
+    const authorsCollection = await getCollection("authors");
     const author = authorsCollection.find((author) => author.id === id);
     return author || null;
   },

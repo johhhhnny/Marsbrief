@@ -17,8 +17,8 @@ type Props = {
 
 const { article, readingTime } = Astro.props;
 
-const category = categoriesHandler.oneCategory(article.data.category.id);
-const authors = authorsHandler.getAuthors(article.data.authors);
+const category = await categoriesHandler.oneCategory(article.data.category.id);
+const authors = await authorsHandler.getAuthors(article.data.authors);
 
 const imageProps =
   typeof article.data.cover === "string"
@@ -57,8 +57,9 @@ const imageProps =
       <div class="text-base-content/70 flex items-center gap-2">
         <span class="hidden lg:flex items-center gap-1">
           <ResourcesAdd size="15" />
-          <a href={`/categories/${category?.id}`} class="a-01 font-semibold"
-            >{category?.data.title}</a
+          <a
+            href={`/categories/${category?.data.path}`}
+            class="a-01 font-semibold">{category?.data.title}</a
           >
         </span>
         <Divider responsive />

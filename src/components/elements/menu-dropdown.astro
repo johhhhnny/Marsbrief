@@ -3,7 +3,7 @@ import Menu from "@/assets/svgs/menu.astro";
 import { categoriesHandler } from "@/lib/handlers/categories";
 import { OTHER_LINKS } from "@/lib/config";
 
-const categories = categoriesHandler.allCategories();
+const categories = await categoriesHandler.allCategories();
 ---
 
 <div class="dropdown">

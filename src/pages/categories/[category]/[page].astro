@@ -10,23 +10,39 @@ import WideCard from "@/components/cards/wideCard.astro";
 import { getEntry } from "astro:content";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const allCategories = categoriesHandler.allCategories();
-  const allArticles = articlesHandler.allArticles();
+  const allCategories = await categoriesHandler.allCategories();
+  const allArticles = await articlesHandler.allArticles();
 
   return allCategories.flatMap((category) => {
     const filteredArticles = allArticles.filter(
-      (article) => article.data.category.id === category.id
+      (article) =>
+        article.data.category.id === category.id ||
+        article.data.category.id === category.data.path,
     );
-    return paginate(filteredArticles, {
-      params: { category: category.id },
-      props: { postsLength: filteredArticles.length },
+    const paths = paginate(filteredArticles, {
+      params: { category: category.data.path },
+      props: {
+        postsLength: filteredArticles.length,
+        currentCategory: category,
+      },
       pageSize: SITE.postsPerPage,
     });
+    if (category.id !== category.data.path) {
+      const aliasPaths = paginate(filteredArticles, {
+        params: { category: category.id },
+        props: {
+          postsLength: filteredArticles.length,
+          currentCategory: category,
+        },
+        pageSize: SITE.postsPerPage,
+      });
+      return [...paths, ...aliasPaths];
+    }
+    return paths;
   });
 }) satisfies GetStaticPaths;
 
-const { page } = Astro.props;
-const { postsLength } = Astro.props;
+const { page, postsLength, currentCategory } = Astro.props;
 const params = Astro.params;
 const articles = page.data;
 const pathname = new URL(Astro.request.url).pathname.split("/");
@@ -37,9 +53,11 @@ const entry = await getEntry("views", "categories");
 if (!entry) {
   return Astro.redirect("/404");
 }
+
+const headerTitle = currentCategory?.data.title || params.category;
 ---
 
-<ListLayout header={params.category} entry={entry}>
+<ListLayout header={headerTitle} entry={entry}>
   <ul class="flex flex-col gap-2 flex-1">
     {
       articles.map((article) => (

@@ -8,7 +8,7 @@ import GiscusComments from "@/components/elements/giscus-comments.astro";
 import { articlesHandler } from "@/lib/handlers/articles";
 
 export const getStaticPaths = async () => {
-  const articles = articlesHandler.allArticles();
+  const articles = await articlesHandler.allArticles();
 
   return articles.map((article) => ({
     params: { id: article.id },

@@ -1,19 +1,19 @@
 import { getCollection } from "astro:content";
 
-const articlesCollection = (
-  await getCollection("articles", ({ data }) => {
-    return data.isDraft !== true && new Date(data.publishedTime) < new Date();
-  })
-).sort((a, b) =>
-  new Date(b.data.publishedTime)
-    .toISOString()
-    .localeCompare(new Date(a.data.publishedTime).toISOString())
-);
-
 export const articlesHandler = {
-  allArticles: () => articlesCollection,
+  allArticles: async () => {
+    const articles = await getCollection("articles", ({ data }) => {
+      return data.isDraft !== true && new Date(data.publishedTime) < new Date();
+    });
+    return articles.sort((a, b) =>
+      new Date(b.data.publishedTime)
+        .toISOString()
+        .localeCompare(new Date(a.data.publishedTime).toISOString())
+    );
+  },
 
-  mainHeadline: () => {
+  mainHeadline: async () => {
+    const articlesCollection = await articlesHandler.allArticles();
     const article = articlesCollection.filter(
       (article) => article.data.isMainHeadline === true
     )[0];
@@ -21,8 +21,9 @@ export const articlesHandler = {
     return article;
   },
 
-  subHeadlines: () => {
-    const mainHeadline = articlesHandler.mainHeadline();
+  subHeadlines: async () => {
+    const articlesCollection = await articlesHandler.allArticles();
+    const mainHeadline = await articlesHandler.mainHeadline();
     const subHeadlines = articlesCollection
       .filter(
         (article) =>
@@ -33,7 +34,9 @@ export const articlesHandler = {
 
     if (subHeadlines.length === 0) {
       return articlesCollection
-        .filter((article) => (mainHeadline ? mainHeadline.id !== article.id : true))
+        .filter(
+          (article) => (mainHeadline ? mainHeadline.id !== article.id : true)
+        )
         .slice(0, 4);
     }
     return subHeadlines;
