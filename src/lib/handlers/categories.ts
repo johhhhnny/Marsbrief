@@ -22,8 +22,9 @@ export const categoriesHandler = {
     return categoriesCollection.map((category) => {
       const articles = allArticles.filter(
         (article) =>
-          article.data.category.id === category.id ||
-          article.data.category.id === category.data.path
+          article.data.category &&
+          (article.data.category.id === category.id ||
+            article.data.category.id === category.data.path)
       );
       return {
         ...category,

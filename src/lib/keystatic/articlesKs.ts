@@ -33,8 +33,9 @@ export const articlesKs = collection({
       description: "可选。未上传封面时将使用默认图片。",
     }),
     category: fields.relationship({
-      label: "Category",
+      label: "Category (分类)",
       collection: "categories",
+      validation: { isRequired: true },
     }),
     publishedTime: fields.datetime({
       label: "Published Time",
