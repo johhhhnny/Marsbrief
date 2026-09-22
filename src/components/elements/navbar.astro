@@ -6,18 +6,32 @@ const categories = await categoriesHandler.allCategories();
 ---
 
 <nav class="navbar-center hidden lg:flex container">
-  <ul class="menu menu-sm menu-horizontal px-1 mx-auto">
+  <ul class="menu menu-md menu-horizontal px-1 mx-auto">
     <NavbarItem item={{ href: "/", text: "首页" }} />
+    {
+      categories
+        .filter((category) => category.data.path === "daily")
+        .map((category) => (
+          <NavbarItem
+            item={{
+              href: `/categories/${category.data.path}`,
+              text: category.data.title,
+            }}
+          />
+        ))
+    }
     <NavbarItem item={{ href: "/articles", text: "深度分析" }} />
     {
-      categories.map((category) => (
-        <NavbarItem
-          item={{
-            href: `/categories/${category.data.path}`,
-            text: category.data.title,
-          }}
-        />
-      ))
+      categories
+        .filter((category) => category.data.path !== "daily")
+        .map((category) => (
+          <NavbarItem
+            item={{
+              href: `/categories/${category.data.path}`,
+              text: category.data.title,
+            }}
+          />
+        ))
     }
   </ul>
 </nav>

@@ -7,7 +7,7 @@ export default config({
   },
   ui: {
     brand: {
-      name: "3x-Alpha",
+      name: "marsbrief",
     },
     navigation: ["---", "articles", "---", "authors", "categories"],
   },

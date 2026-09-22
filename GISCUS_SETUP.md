@@ -13,7 +13,7 @@ Giscus 是一个基于 GitHub Discussions 的轻量级评论系统，支持中�
    - 选择语言为"中文（简体）"
 
 2. **配置仓库信息**
-   - 输入仓库：`johhhhnny/3x-Alpha`
+   - 输入仓库：`johhhhnny/marsbrief`
    - 确保仓库是**公开的**
    - 确保已启用 **Discussions** 功能
 
@@ -36,7 +36,7 @@ Giscus 是一个基于 GitHub Discussions 的轻量级评论系统，支持中�
 ```astro
 <script
   src="https://giscus.app/client.js"
-  data-repo="johhhhnny/3x-Alpha"
+  data-repo="johhhhnny/marsbrief"
   data-repo-id="R_kgDONfW3IQ"          <!-- 你的仓库ID -->
   data-category="Announcements"
   data-category-id="DIC_kwDONfW3Ic4Cm-c3"  <!-- 你的分类ID -->

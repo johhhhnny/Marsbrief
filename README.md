@@ -1,9 +1,9 @@
-# 3x-Alpha 📈
+# Mars Brief 📈
 
-3x-Alpha 是一个面向进阶投资者，深度探讨杠杆 ETF、期权策略与市场洞察的中文财经内容空间。
+Mars Brief 是一个面向进阶投资者，深度探讨杠杆 ETF、期权策略与市场洞察的中文财经内容空间。
 
-* 🌐 **网站地址**：[https://3x-alpha.com/](https://3x-alpha.com/)
-* 📦 **开源仓库**：[https://github.com/johhhhnny/3x-Alpha](https://github.com/johhhhnny/3x-Alpha)
+* 🌐 **网站地址**：[https://marsbrief.net/](https://marsbrief.net/)
+* 📦 **开源仓库**：[https://github.com/johhhhnny/marsbrief](https://github.com/johhhhnny/marsbrief)
 
 本项目基于 [Astro 5](https://astro.build) 构建，并结合 [Keystatic CMS](https://keystatic.com) 提供强大的可视化内容管理能力，同时支持纯 Markdown/MDX 文件驱动，兼具极致性能与编辑体验。
 
@@ -25,7 +25,7 @@
 ## 📁 目录结构说明
 
 ```text
-3x-alpha/
+marsbrief/
 ├── public/                 # 公共静态资源（favicon、robots.txt、manifest 等）
 ├── src/
 │   ├── assets/             # 图片素材、SVG 图标等
@@ -66,8 +66,8 @@
 ### 2. 克隆仓库
 
 ```bash
-git clone https://github.com/johhhhnny/3x-Alpha.git
-cd 3x-alpha
+git clone https://github.com/johhhhnny/marsbrief.git
+cd marsbrief
 ```
 
 ### 3. 安装依赖

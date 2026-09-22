@@ -19,22 +19,15 @@ import Sun from "@/assets/svgs/sun.astro";
 </label>
 
 <script is:inline>
-  // Function to apply the initial theme and set the checkbox state
-  function applyTheme() {
-    const theme = localStorage.getItem("astro-theme") || "dark";
+  function syncThemeController() {
+    const theme = document.documentElement.dataset.theme || "light";
     const themeController = document.querySelector(".theme-controller");
 
-    // Update the checkbox state and apply the theme
-    if (theme === "dark") {
-      themeController.checked = true;
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      themeController.checked = false;
-      document.documentElement.setAttribute("data-theme", "light");
+    if (themeController) {
+      themeController.checked = theme === "dark";
     }
   }
 
-  // Add event listener to toggle theme when the checkbox is clicked
   function handleThemeToggle(event) {
     const isDark = event.target.checked;
     const newTheme = isDark ? "dark" : "light";
@@ -42,12 +35,14 @@ import Sun from "@/assets/svgs/sun.astro";
     document.documentElement.setAttribute("data-theme", newTheme);
   }
 
-  document.addEventListener("astro:page-load", () => {
-    applyTheme();
+  function initializeThemeController() {
+    syncThemeController();
     const themeController = document.querySelector(".theme-controller");
-    themeController.addEventListener("change", handleThemeToggle);
-  });
+    themeController?.addEventListener("change", handleThemeToggle, {
+      once: true,
+    });
+  }
 
-  // Apply theme immediately on script execution
-  applyTheme();
+  document.addEventListener("astro:page-load", initializeThemeController);
+  initializeThemeController();
 </script>

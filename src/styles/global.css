@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes: dark --default, light;
+  themes: light --default, dark;
   root: ":root";
   logs: false;
 }
@@ -32,6 +32,16 @@
   --color-secondary-content: oklch(98% 0.01 35);
   --color-accent: oklch(54% 0.13 210);
   --color-accent-content: oklch(98% 0.01 210);
+  --color-neutral: oklch(27% 0.02 245);
+  --color-neutral-content: oklch(98% 0.01 245);
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(96% 0.01 245);
+  --color-base-300: oklch(91% 0.015 245);
+  --color-base-content: oklch(21% 0.02 245);
+  --color-info: oklch(57% 0.15 230);
+  --color-success: oklch(58% 0.14 155);
+  --color-warning: oklch(65% 0.16 75);
+  --color-error: oklch(58% 0.18 25);
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -83,6 +93,10 @@
     letter-spacing: 0;
     word-break: break-word;
     text-wrap: pretty;
+    :where(h1, h2, h3, h4, h5, h6) {
+      font-family: var(--font-sans);
+      letter-spacing: 0;
+    }
     pre {
       code {
         span,
@@ -93,10 +107,14 @@
     }
   }
   .card-title,
-  .article-title,
   .page-title {
     font-family: var(--font-serif);
     letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+  .article-title {
+    font-family: var(--font-sans);
+    letter-spacing: 0;
     line-height: 1.2;
   }
   .card-copy,

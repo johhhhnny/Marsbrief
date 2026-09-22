@@ -30,7 +30,7 @@ export default defineConfig({
   image: {
     responsiveStyles: true,
     breakpoints: [640, 1024],
-    domains: ["cloudflare.com", "r2.dev", "3x-alpha.com"],
+    domains: ["cloudflare.com", "r2.dev", "marsbrief.net"],
     remotePatterns: [
       {
         protocol: "https",
@@ -42,7 +42,7 @@ export default defineConfig({
       },
       {
         protocol: "https",
-        hostname: "**.3x-alpha.com",
+        hostname: "**.marsbrief.net",
       },
     ],
   },
