@@ -7,7 +7,7 @@ description: >-
   Roadster，并继续推进 Grok 与汽车系统的融合。
 title: 从 FSD 捷克获批到 Roadster 回归：Tesla 的长期故事开始进入现实检验期
 cover: '@assets/images/articles/fsd-roadster-tesla/cover.png'
-category: autonomy
+category: daily
 publishedTime: 2026-09-22T22:01:00.000Z
 authors:
   - johnny

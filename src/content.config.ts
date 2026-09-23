@@ -9,7 +9,7 @@ import {
 
 const articleCollection = defineCollection({
   loader: glob({
-    pattern: "**/*.{md,mdx}",
+    pattern: ["**/*.md", "**/*.mdx"],
     base: "./src/content/articles",
   }),
   schema: ({ image }) => articleSchema(image),

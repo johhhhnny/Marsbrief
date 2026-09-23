@@ -58,6 +58,7 @@ export const articlesKs = collection({
     ),
     content: fields.mdx({
       label: "Content",
+      extension: "md",
       options: {
         image: {
           directory: "src/assets/images/articles",
