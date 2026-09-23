@@ -1,42 +1,21 @@
 ---
 import MainHeadline from "@/components/cards/mainHeadline.astro";
-import SubHeadlineCard from "@/components/cards/subHeadlineCard.astro";
 import { articlesHandler } from "@/lib/handlers/articles";
 
 const mainHeadlineArticle = await articlesHandler.mainHeadline();
-const subHeadlinesArticles = await articlesHandler.subHeadlines();
 
-const hasContent = mainHeadlineArticle || subHeadlinesArticles.length > 0;
+const hasContent = !!mainHeadlineArticle;
 ---
 
 {
   hasContent && (
     <section
-      class:list={[
-        "grid grid-cols-1 gap-6 container pt-4 md:pt-8",
-        subHeadlinesArticles.length > 0 && "md:grid-cols-10",
-      ]}
+      class="grid grid-cols-1 gap-6 container pt-4 md:pt-8"
       data-pagefind-ignore="all"
     >
-      <div
-        class:list={[
-          "col-span-1",
-          subHeadlinesArticles.length > 0 && "md:col-span-6",
-        ]}
-      >
+      <div class="col-span-1">
         {mainHeadlineArticle && <MainHeadline article={mainHeadlineArticle} />}
       </div>
-      {subHeadlinesArticles.length > 0 && (
-        <div class="col-span-1 md:col-span-4">
-          {subHeadlinesArticles.map((article, index) => (
-            <SubHeadlineCard
-              article={article}
-              isFirst={index === 0}
-              isLast={index === subHeadlinesArticles.length - 1}
-            />
-          ))}
-        </div>
-      )}
     </section>
   )
 }
