@@ -15,12 +15,12 @@ export const SITE = {
 
 export const NAVIGATION_LINKS: Link[] = [
   {
-    href: "/articles",
-    text: "深度分析",
-  },
-  {
     href: "/categories/log",
     text: "每日精选",
+  },
+  {
+    href: "/categories/analysis",
+    text: "深度分析",
   },
   {
     href: "/categories/musk",

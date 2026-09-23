@@ -20,7 +20,6 @@ const categories = await categoriesHandler.allCategories();
           />
         ))
     }
-    <NavbarItem item={{ href: "/articles", text: "深度分析" }} />
     {
       categories
         .filter((category) => category.data.path !== "daily")

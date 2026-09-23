@@ -27,7 +27,6 @@ const categories = await categoriesHandler.allCategories();
         class="flex flex-col gap-4 lg:flex-row lg:flex-wrap text-base lg:text-sm font-semibold"
       >
         <a href="/" class="link link-hover">首页</a>
-        <a href="/articles" class="link link-hover">深度分析</a>
         {
           categories.map((category) => (
             <a

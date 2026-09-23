@@ -8,9 +8,14 @@ const categoryReferences = (article: CollectionEntry<"articles">) =>
 export const categoriesHandler = {
   allCategories: async () => {
     const categoriesCollection = await getCollection("categories");
-    return categoriesCollection.sort((a, b) =>
-      a.data.title.localeCompare(b.data.title)
-    );
+    return categoriesCollection.sort((a, b) => {
+      const priority = (path: string) =>
+        path === "daily" ? 0 : path === "analysis" ? 1 : 2;
+      const priorityDifference =
+        priority(a.data.path) - priority(b.data.path);
+
+      return priorityDifference || a.data.title.localeCompare(b.data.title);
+    });
   },
   oneCategory: async (categoryIdOrPath: string) => {
     const categoriesCollection = await getCollection("categories");
