@@ -32,11 +32,17 @@ export const articlesKs = collection({
       publicPath: "@assets/images/articles/",
       description: "可选。未上传封面时将使用默认图片。",
     }),
-    category: fields.relationship({
-      label: "Category (分类)",
-      collection: "categories",
-      validation: { isRequired: true },
-    }),
+    category: fields.array(
+      fields.relationship({
+        label: "Category (分类)",
+        collection: "categories",
+      }),
+      {
+        label: "Categories (分类)",
+        itemLabel: (props) => props.value ?? "",
+        validation: { length: { min: 1 } },
+      }
+    ),
     publishedTime: fields.datetime({
       label: "Published Time",
       validation: { isRequired: true },

@@ -14,9 +14,7 @@ type Props = {
 const { article, isLast, isFirst } = Astro.props;
 
 const { remarkPluginFrontmatter } = await render(article);
-const category = article.data.category
-  ? await categoriesHandler.oneCategory(article.data.category.id)
-  : null;
+const categories = await categoriesHandler.allCategoriesForArticle(article);
 
 const imageProps =
   typeof article.data.cover === "string"
@@ -50,9 +48,14 @@ const imageProps =
       </div>
     </div>
     <div class="flex items-center text-xs text-base-content/80 mt-1 lg:mt-auto">
-      <span class="text-primary dark:text-secondary"
-        >{category?.data.title}</span
-      >
+      <span class="text-primary dark:text-secondary">
+        {
+          categories
+            .map((category) => category?.data.title)
+            .filter(Boolean)
+            .join("、")
+        }
+      </span>
       <Divider />
       <span>{getDateDistance(remarkPluginFrontmatter.lastModified)}</span>
     </div>

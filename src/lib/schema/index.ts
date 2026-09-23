@@ -10,7 +10,7 @@ export const articleSchema = (image: ImageFunction) =>
     cover_alt: z.string().optional(),
     title: z.string().max(60, "Too long, max 60 characters"),
     description: z.string().max(160, "Too long, max 160 characters"),
-    category: reference("categories").optional(),
+    category: z.array(reference("categories")).min(1),
     authors: z.array(reference("authors")).min(1),
     publishedTime: z.string().datetime().or(z.date()),
   });

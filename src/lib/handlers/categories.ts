@@ -1,5 +1,9 @@
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { articlesHandler } from "./articles";
+
+const categoryReferences = (article: CollectionEntry<"articles">) =>
+  article.data.category;
 
 export const categoriesHandler = {
   allCategories: async () => {
@@ -16,15 +20,24 @@ export const categoriesHandler = {
     );
     return category || null;
   },
+  allCategoriesForArticle: async (article: CollectionEntry<"articles">) =>
+    Promise.all(
+      categoryReferences(article).map((category) =>
+        categoriesHandler.oneCategory(category.id)
+      )
+    ),
+  articleHasCategory: (
+    article: CollectionEntry<"articles">,
+    categoryIdOrPath: string
+  ) => categoryReferences(article).some((category) => category.id === categoryIdOrPath),
   allCategoriesWithLatestArticles: async () => {
     const categoriesCollection = await getCollection("categories");
     const allArticles = await articlesHandler.allArticles();
     return categoriesCollection.map((category) => {
       const articles = allArticles.filter(
         (article) =>
-          article.data.category &&
-          (article.data.category.id === category.id ||
-            article.data.category.id === category.data.path)
+          categoriesHandler.articleHasCategory(article, category.id) ||
+          categoriesHandler.articleHasCategory(article, category.data.path)
       );
       return {
         ...category,

@@ -17,9 +17,8 @@ type Props = {
 
 const { article, readingTime } = Astro.props;
 
-const category = article.data.category
-  ? await categoriesHandler.oneCategory(article.data.category.id)
-  : null;
+const categories = await categoriesHandler.allCategoriesForArticle(article);
+const primaryCategory = categories.find((category) => category);
 const authors = await authorsHandler.getAuthors(article.data.authors);
 
 const imageProps =
@@ -45,8 +44,15 @@ const imageProps =
   </div>
   <div class="container my-4 max-w-5xl lg:hidden flex items-center gap-2">
     <ResourcesAdd size="16" />
-    <a href={`/categories/${category?.data.path}`} class="a-01 font-semibold"
-      >{category?.data.title}</a
+    <a
+      href={`/categories/${primaryCategory?.data.path}`}
+      class="a-01 font-semibold"
+      >{
+        categories
+          .map((category) => category?.data.title)
+          .filter(Boolean)
+          .join("、")
+      }</a
     >
   </div>
   <div class="container max-w-5xl">
@@ -60,8 +66,14 @@ const imageProps =
         <span class="hidden lg:flex items-center gap-1">
           <ResourcesAdd size="15" />
           <a
-            href={`/categories/${category?.data.path}`}
-            class="a-01 font-semibold">{category?.data.title}</a
+            href={`/categories/${primaryCategory?.data.path}`}
+            class="a-01 font-semibold"
+            >{
+              categories
+                .map((category) => category?.data.title)
+                .filter(Boolean)
+                .join("、")
+            }</a
           >
         </span>
         <Divider responsive />
