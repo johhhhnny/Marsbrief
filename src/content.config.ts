@@ -8,7 +8,10 @@ import {
 } from "@/lib/schema";
 
 const articleCollection = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/content/articles" }),
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/articles",
+  }),
   schema: ({ image }) => articleSchema(image),
 });
 
