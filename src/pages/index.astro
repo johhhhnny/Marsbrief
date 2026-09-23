@@ -1,12 +1,14 @@
 ---
-import BaseLayout from "@/layouts/base.astro";
-import { getEntry } from "astro:content";
-import Headlines from "@/pages/_home/headlines.astro";
-import LatestNews from "@/pages/_home/latestNews.astro";
-import Authors from "@/pages/_home/authors.astro";
+import BaseLayout from "@/layouts/base.astro"; // 导入基础布局组件（包含 html, head, header, footer 等全局结构）
+import { getEntry } from "astro:content"; // 导入 Astro 内容集合 API，用于读取特定的 markdown/json 数据
+import Headlines from "@/pages/_home/headlines.astro"; // 导入首页专属的“头条”组件
+import LatestNews from "@/pages/_home/latestNews.astro"; // 导入首页专属的“最新新闻”组件
+import Authors from "@/pages/_home/authors.astro"; // 导入首页专属的“作者团队/专栏作者”组件
 
+// 从 "views" 内容集合中获取标识为 "home" 的单页元数据配置（比如 SEO 相关的 title、description、OG 图片等）
 const entry = await getEntry("views", "home");
 
+// 容错处理：如果没找到 views/home 数据，说明可能误删了配置文件，直接重定向到 404 页面
 if (!entry) {
   return Astro.redirect("/404");
 }
@@ -23,11 +25,6 @@ if (!entry) {
     </div>
     <div class="container py-10 md:py-14">
       <div class="max-w-3xl">
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.2em] text-primary"
-        >
-          火星简报 MARS BRIEF
-        </p>
         <h1
           class="mt-4 text-4xl font-serif font-bold leading-tight md:text-6xl"
         >

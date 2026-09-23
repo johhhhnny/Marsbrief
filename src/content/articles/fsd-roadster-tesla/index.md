@@ -3,7 +3,7 @@ isDraft: false
 isMainHeadline: false
 isSubHeadline: false
 description: >-
-  欧洲又有一个国家批准 FSD，一段 Tesla 车载摄像头视频帮助一名司机摆脱刑事指控，同时公司又即将举行 Semi 活动、公布新一代
+  欧洲又一个国家批准 FSD，一段 Tesla 车载摄像头视频帮助一名司机摆脱刑事指控，同时公司又即将举行 Semi 活动、公布新一代
   Roadster，并继续推进 Grok 与汽车系统的融合。
 title: 从 FSD 捷克获批到 Roadster 回归：Tesla 的长期故事开始进入现实检验期
 cover: '@assets/images/articles/fsd-roadster-tesla/cover.png'
