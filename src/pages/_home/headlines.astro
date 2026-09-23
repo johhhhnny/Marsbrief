@@ -12,21 +12,31 @@ const hasContent = mainHeadlineArticle || subHeadlinesArticles.length > 0;
 {
   hasContent && (
     <section
-      class="grid grid-cols-1 gap-6 md:grid-cols-10 container pt-4 md:pt-8"
+      class:list={[
+        "grid grid-cols-1 gap-6 container pt-4 md:pt-8",
+        subHeadlinesArticles.length > 0 && "md:grid-cols-10",
+      ]}
       data-pagefind-ignore="all"
     >
-      <div class="col-span-1 md:col-span-6">
+      <div
+        class:list={[
+          "col-span-1",
+          subHeadlinesArticles.length > 0 && "md:col-span-6",
+        ]}
+      >
         {mainHeadlineArticle && <MainHeadline article={mainHeadlineArticle} />}
       </div>
-      <div class="col-span-1 md:col-span-4">
-        {subHeadlinesArticles.map((article, index) => (
-          <SubHeadlineCard
-            article={article}
-            isFirst={index === 0}
-            isLast={index === subHeadlinesArticles.length - 1}
-          />
-        ))}
-      </div>
+      {subHeadlinesArticles.length > 0 && (
+        <div class="col-span-1 md:col-span-4">
+          {subHeadlinesArticles.map((article, index) => (
+            <SubHeadlineCard
+              article={article}
+              isFirst={index === 0}
+              isLast={index === subHeadlinesArticles.length - 1}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

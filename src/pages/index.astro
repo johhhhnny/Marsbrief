@@ -23,28 +23,34 @@ if (!entry) {
         class="block h-auto w-full"
       />
     </div>
-    <div class="container py-10 md:py-14">
-      <div class="max-w-3xl">
-        <h1
-          class="mt-4 text-4xl font-serif font-bold leading-tight md:text-6xl"
-        >
-          看见新闻背后的世界
-        </h1>
-        <p class="mt-5 max-w-2xl text-lg leading-8 text-base-content/75">
-          从 Musk
-          出发，看懂正在形成的未来世界。我们不只是报道新闻，我们提供关于科技、商业与未来的高密度情报。
-        </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a class="btn btn-primary" href="/articles">探索深度分析</a>
-          <a
-            class="btn btn-outline border-base-content/70 text-base-content hover:border-base-content hover:bg-base-content hover:text-base-100"
-            href="mailto:brief@marsbrief.com">订阅每周精选</a
+  </section>
+  <div class="container grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+    <section class="text-center">
+      <div class="py-10 md:py-14">
+        <div class="mx-auto max-w-3xl">
+          <h1
+            class="mt-4 text-4xl font-serif font-bold leading-tight md:text-6xl"
           >
+            看见新闻背后的世界
+          </h1>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-base-content/75">
+            从 Musk
+            出发，看懂正在形成的未来世界。我们不只是报道新闻，我们提供关于科技、商业与未来的高密度情报。
+          </p>
+          <div class="mt-7 flex flex-wrap justify-center gap-3">
+            <a class="btn btn-primary" href="/articles">探索深度分析</a>
+            <a
+              class="btn btn-outline border-base-content/70 text-base-content hover:border-base-content hover:bg-base-content hover:text-base-100"
+              href="mailto:brief@marsbrief.com">订阅每日简报</a
+            >
+          </div>
         </div>
       </div>
+    </section>
+    <div>
+      <Headlines />
     </div>
-  </section>
-  <Headlines />
+  </div>
   <LatestNews />
   <Authors />
 </BaseLayout>
