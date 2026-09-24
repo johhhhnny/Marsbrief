@@ -3,6 +3,7 @@ import { collection, fields } from "@keystatic/core";
 export const articlesKs = collection({
   label: "Articles（文章）",
   slugField: "title",
+  columns: ["title", "publishedTime"],
   path: "src/content/articles/*/",
   format: { contentField: "content" },
   entryLayout: "form",

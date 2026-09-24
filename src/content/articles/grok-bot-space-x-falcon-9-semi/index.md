@@ -1,11 +1,11 @@
 ---
 isDraft: false
-isMainHeadline: true
+isMainHeadline: false
 isSubHeadline: false
 description: >-
-  - xAI 公开了 Grok Bot 在客服场景的实际效果，Tesla 同步把类似能力带进车内； - SpaceX继续向 Starship
-  集中资源，商业发射市场感受到压力； - 一个由大型货主组成的联盟把2500辆电池电动 Class 8 订单的主要位置给了Tesla Semi。
-title: Grok Bot 助理降本增效、SpaceX 收紧 Falcon 9 商单、Semi 拿下美国最大电动重卡订单
+  xAI 公开 Grok Bot 在客服场景的实际效果，Tesla 同步把类似能力带进车内； SpaceX继续向 Starship
+  集中资源，商业发射市场感受到压力； 一个由大型货主组成的联盟把2500辆电池电动 Class 8 订单的主要位置给了Tesla Semi。
+title: Grok Bot 助力降本增效、SpaceX 收紧 Falcon 9 商单、Semi 拿下最大电动重卡订单
 cover: '@assets/images/articles/grok-bot-space-x-falcon-9-semi/cover.jpeg'
 category:
   - ai
@@ -15,7 +15,7 @@ publishedTime: 2026-09-23T01:48:00.000Z
 authors:
   - johnny
 ---
-\*\*今日科技与商业新闻：
+**今日科技与商业新闻：**
 
 * xAI 公开了 Grok Bot 在客服场景的实际效果，Tesla 同步把类似能力带进车内；
 * SpaceX继续向 Starship 集中资源，商业发射市场感受到压力；
