@@ -1,11 +1,14 @@
 # Mars Brief 📈
 
-Mars Brief 是一个面向进阶投资者，深度探讨杠杆 ETF、期权策略与市场洞察的中文财经内容空间。
+火星简报 MARS BRIEF
+
+一个从 Musk 出发，解释科技、商业与未来世界变化的中文高密度内容媒体。
+
+本项目是 MARS BRIEF 的网站系统，使用 Astro 构建，以 Markdown/MDX 为主要内容来源，并通过 GitHub 管理内容与代码。
 
 * 🌐 **网站地址**：[https://marsbrief.net/](https://marsbrief.net/)
 * 📦 **开源仓库**：[https://github.com/johhhhnny/marsbrief](https://github.com/johhhhnny/marsbrief)
 
-本项目基于 [Astro 5](https://astro.build) 构建，并结合 [Keystatic CMS](https://keystatic.com) 提供强大的可视化内容管理能力，同时支持纯 Markdown/MDX 文件驱动，兼具极致性能与编辑体验。
 
 ---
 

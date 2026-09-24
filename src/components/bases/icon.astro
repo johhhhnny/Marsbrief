@@ -1,7 +1,7 @@
 ---
 import Github from "@/assets/svgs/github.astro";
 import NewTwitter from "@/assets/svgs/new-twitter.astro";
-import Telegram from "@/assets/svgs/telegram.astro";
+import Youtube from "@/assets/svgs/youtube.astro";
 import Facebook from "@/assets/svgs/facebook.astro";
 
 export interface Props {
@@ -16,6 +16,6 @@ if (!icon) {
 ---
 
 {icon === "github" && <Github />}
-{icon === "telegram" && <Telegram />}
+{icon === "youtube" && <Youtube />}
 {icon === "newTwitter" && <NewTwitter />}
 {icon === "facebook" && <Facebook />}

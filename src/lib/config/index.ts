@@ -4,7 +4,7 @@ export const SITE = {
   title: "火星简报 MARS BRIEF",
   description: "从 Musk 出发，看懂正在形成的未来世界。",
   author: "Mars Brief 编辑部",
-  url: "https://marsbrief.com",
+  url: "https://marsbrief.net",
   github: "",
   locale: "zh-CN",
   dir: "ltr",
@@ -76,6 +76,6 @@ export const SOCIAL_LINKS: Link[] = [
   {
     href: "https://www.youtube.com",
     text: "YouTube",
-    icon: "telegram",
+    icon: "youtube",
   },
 ];
