@@ -13,7 +13,9 @@ if (!entry) {
 <BaseLayout entry={entry}>
   <div class="container py-4">
     <div id="search"></div>
-    <script type="module" src="/src/pages/search/pagefind-client.ts"></script>
+    <script>
+      import "./pagefind-client.ts";
+    </script>
   </div>
 </BaseLayout>
 
