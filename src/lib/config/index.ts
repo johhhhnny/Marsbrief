@@ -37,26 +37,28 @@ export const OTHER_LINKS: Link[] = [
     href: "/about",
     text: "关于我们",
   },
-  {
-    href: "/authors",
-    text: "作者列表",
-  },
-  {
-    href: "/contact",
-    text: "联系我们",
-  },
-  {
-    href: "/privacy",
-    text: "隐私政策",
-  },
-  {
-    href: "/terms",
-    text: "服务条款",
-  },
-  {
-    href: "/cookie-policy",
-    text: "Cookie 政策",
-  },
+  /*
+    {
+      href: "/authors",
+      text: "作者列表",
+    },
+    {
+      href: "/contact",
+      text: "联系我们",
+    },
+    {
+      href: "/privacy",
+      text: "隐私政策",
+    },
+    {
+      href: "/terms",
+      text: "服务条款",
+    },
+    {
+      href: "/cookie-policy",
+      text: "Cookie 政策",
+    },
+    */
   {
     href: "/rss.xml",
     text: "RSS 订阅",
@@ -68,11 +70,13 @@ export const OTHER_LINKS: Link[] = [
 ];
 
 export const SOCIAL_LINKS: Link[] = [
-  {
-    href: "https://x.com",
-    text: "X",
-    icon: "newTwitter",
-  },
+  /*
+   {
+     href: "https://x.com",
+     text: "X",
+     icon: "newTwitter",
+   },
+   */
   {
     href: "https://www.youtube.com",
     text: "YouTube",
