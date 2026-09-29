@@ -1,7 +1,7 @@
 import { collection, fields } from "@keystatic/core";
 
 export const categoriesKs = collection({
-  label: "Categories",
+  label: "Categories(分类)",
   slugField: "title",
   path: "src/content/categories/*/",
   format: { data: "json" },

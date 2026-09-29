@@ -78,7 +78,7 @@ export const SOCIAL_LINKS: Link[] = [
    },
    */
   {
-    href: "https://www.youtube.com",
+    href: "https://www.youtube.com/channel/UCe5Yltvd3AtnIFI6bv5Wd8g",
     text: "YouTube",
     icon: "youtube",
   },

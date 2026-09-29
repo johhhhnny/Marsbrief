@@ -25,7 +25,7 @@ export const articlesKs = collection({
       validation: { isRequired: true, length: { max: 160 } },
     }),
     title: fields.slug({
-      name: { label: "Title", validation: { length: { max: 60 } } },
+      name: { label: "Title（标题）", validation: { length: { max: 60 } } },
     }),
     cover: fields.image({
       label: "Cover Image（封面图）",
