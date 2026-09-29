@@ -6,7 +6,7 @@ description: >-
   2026年9月28日，SpaceX 的 Starship
   完成第14次试飞。这一次，它终于完成了此前一直没有真正完成的一件事：把自己的下一代火箭系统，第一次接入了 SpaceX 已经存在的商业网络。
   Starship 首次进入轨道，并部署26颗 Starlink V3卫星。
-title: Starship Flight 14：首次完成轨道飞行后，SpaceX真正跨过的是什么？
+title: 星舰 14 飞：首次完成轨道飞行后，SpaceX真正跨过的是什么？
 cover: '@assets/images/articles/starship-flight-14-spacex-starlink-v3/cover.jpeg'
 category:
   - analysis
