@@ -32,7 +32,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 随后，他提出一个看起来非常直接的解决方案：**那就挖隧道。** 甚至连公司的名字也是一个双关语——“Boring”既可以理解为“无聊”，也可以理解为“隧道掘进”。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/image.png)
+![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/68a4c67a58a5cffe2862e5e0_careers-04.avif)
 
 2018年，The Boring Company 正式从 SpaceX 独立出来。公司最初的目标并不是单纯建几条隧道，而是试图解决一个更底层的问题：**为什么地下交通基础设施这么贵？**
 
@@ -46,14 +46,12 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 过去几年，Boring Company 最重要的实验场就是拉斯维加斯。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/image.png)\
+![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.41.30.png)\
 2021年，公司开放了拉斯维加斯会展中心环线（Vegas Loop）。最初的线路只有约1.7英里、3个车站，建设成本约4700万美元。乘客坐的也不是科幻电影里的真空胶囊，而是非常普通的Tesla车辆。车辆进入地下隧道，在不同车站之间穿梭。这套系统看起来甚至有些“不够未来”。但这恰恰是 Boring Company 路线变化的重要地方。
 
 早期马斯克曾设想使用专门的电动滑板车或高速运输舱；真正落地之后，公司更多采用现成的 Tesla 车辆。换句话说：**先用已经成熟的电动车技术解决地下交通问题，再逐步提高整个系统的自动化和运行速度。**
 
 如今，拉斯维加斯环线已经远远超过最初的会展中心线路。公司已经获得总计约68英里隧道、123个车站的规划和建设批准，线路正在向多个赌场酒店以及机场方向扩展。包括 Resorts World、Encore、Fontainebleau、Sahara、Westgate 等区域，都已经被纳入不同阶段的网络规划。
-
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/image.png)
 
 公司披露的累计乘客量也已经超过400万人次。其中一些线路已经投入运营，例如连接 Encore 的线路，地下行程只有几十秒。这意味着一个重要变化：**Boring Company 已经不再只是“挖了一条展示用隧道”。** 它正在尝试把拉斯维加斯环线变成一个真正持续运营的交通网络。
 
@@ -61,7 +59,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 如果说拉斯维加斯环线证明了 Boring Company 能够建设并运营城市地下交通，那么纳什维尔项目则是在测试它能不能把这种模式复制到新的城市。2025年，Boring Company 宣布与田纳西州合作建设音乐城环线（Music City Loop）。项目计划连接纳什维尔市中心、会展中心以及纳什维尔国际机场，全长约10至13英里。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/image.png)
+![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/HTQ8l2VXsAAAm1x.jpeg)
 
 与拉斯维加斯不同，纳什维尔的地质条件更加复杂，公司需要在硬岩环境下掘进。2026年2月获得许可后，项目开始进入实施阶段。
 
