@@ -11,7 +11,7 @@ cover: '@assets/images/articles/starship-flight-14-spacex-starlink-v3/cover.jpeg
 category:
   - analysis
   - space
-publishedTime: 2026-09-29T18:03:00.000Z
+publishedTime: 2026-09-29T01:03:00.000Z
 authors:
   - johnny
 ---
