@@ -5,8 +5,9 @@ isSubHeadline: false
 description: >-
   埃隆·马斯克透露，The Boring Company
   正在积极规划一条连接奥斯汀与圣安东尼奥的高速地下交通线路。按照目前披露的设想，这将是一条大约80英里（约129公里）的地下隧道，目标运行速度超过200英里/小时，也就是约322公里/小时。
-title: 马斯克要让奥斯汀和圣安东尼奥30分钟通勤变成现实？
-cover: '@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/cover.jpeg'
+title: 9月29日：马斯克要让奥斯汀和圣安东尼奥30分钟通勤变成现实？
+cover: >-
+  @assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/cover.jpeg
 category:
   - daily
   - muskempire
@@ -18,7 +19,7 @@ authors:
 
 日前，埃隆·马斯克透露，The Boring Company 正在积极规划一条连接奥斯汀与圣安东尼奥的高速地下交通线路。按照目前披露的设想，这将是一条大约80英里（约129公里）的地下隧道，目标运行速度超过200英里/小时，也就是约322公里/小时。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.20.09.png)
+![](@assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.20.09.png)
 
 马斯克称，目前两座城市之间的车程因为交通拥堵可能达到两个半小时，而这条隧道的目标，是把时间压缩到30分钟甚至更短。如果最终落地，这将是 The Boring Company 第一次真正意义上向**城际高速交通**迈进。更重要的是，这条隧道可能代表着 Boring Company 过去几年一直在尝试证明的一件事：
 
@@ -32,7 +33,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 随后，他提出一个看起来非常直接的解决方案：**那就挖隧道。** 甚至连公司的名字也是一个双关语——“Boring”既可以理解为“无聊”，也可以理解为“隧道掘进”。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/68a4c67a58a5cffe2862e5e0_careers-04.avif)
+![](@assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/68a4c67a58a5cffe2862e5e0_careers-04.avif)
 
 2018年，The Boring Company 正式从 SpaceX 独立出来。公司最初的目标并不是单纯建几条隧道，而是试图解决一个更底层的问题：**为什么地下交通基础设施这么贵？**
 
@@ -46,7 +47,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 过去几年，Boring Company 最重要的实验场就是拉斯维加斯。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.41.30.png)\
+![](@assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.41.30.png)\
 2021年，公司开放了拉斯维加斯会展中心环线（Vegas Loop）。最初的线路只有约1.7英里、3个车站，建设成本约4700万美元。乘客坐的也不是科幻电影里的真空胶囊，而是非常普通的Tesla车辆。车辆进入地下隧道，在不同车站之间穿梭。这套系统看起来甚至有些“不够未来”。但这恰恰是 Boring Company 路线变化的重要地方。
 
 早期马斯克曾设想使用专门的电动滑板车或高速运输舱；真正落地之后，公司更多采用现成的 Tesla 车辆。换句话说：**先用已经成熟的电动车技术解决地下交通问题，再逐步提高整个系统的自动化和运行速度。**
@@ -59,7 +60,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 如果说拉斯维加斯环线证明了 Boring Company 能够建设并运营城市地下交通，那么纳什维尔项目则是在测试它能不能把这种模式复制到新的城市。2025年，Boring Company 宣布与田纳西州合作建设音乐城环线（Music City Loop）。项目计划连接纳什维尔市中心、会展中心以及纳什维尔国际机场，全长约10至13英里。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/HTQ8l2VXsAAAm1x.jpeg)
+![](@assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/HTQ8l2VXsAAAm1x.jpeg)
 
 与拉斯维加斯不同，纳什维尔的地质条件更加复杂，公司需要在硬岩环境下掘进。2026年2月获得许可后，项目开始进入实施阶段。
 
@@ -69,7 +70,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 
 这就是奥斯汀——圣安东尼奥项目真正值得关注的地方。目前已经落地的环线，本质上仍然属于**城市地下交通**。车辆速度并不高，重点是绕开地面交通，把乘客快速送过拥堵区域。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/image.png)
+![](@assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/image.png)
 
 但奥斯汀—圣安东尼奥完全不同。两座城市相距约80英里。35号洲际公路是连接两地的重要交通走廊，同时也是美国最拥堵的区域之一。在交通拥堵严重的时候，两座城市之间的公路行程可能需要两个半小时。
 
@@ -88,7 +89,7 @@ The Boring Company，简称 TBC，是马斯克于2016年底提出、2017年正�
 * 没有地面道路上的大量随机障碍物；
 * 行驶线路相对固定。
 
-![](@assets/images/articles/musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.27.06.png)
+![](@assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/2026-09-29%2023.27.06.png)
 
 换句话说：**地下隧道可能成为自动驾驶系统从城市道路进入高速交通的一个相对可控环境。** 因此，如果未来奥斯汀——圣安东尼奥项目真的采用自动驾驶 Tesla 车队，那么它测试的就不仅仅是隧道技术。它实际上是在同时测试：**隧道 + 电动车 + 自动驾驶 + 调度系统**能不能组合成一种新的城际交通模式。这也是这个项目与传统地铁、高铁和公路最大的不同之一。\
 如果 Boring Company 能够用更低的成本、更快的速度建设长距离地下隧道，再结合高速电动车和自动驾驶车队，那么它实际上是在挑战传统城际交通的经济模型。\

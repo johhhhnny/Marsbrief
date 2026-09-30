@@ -5,8 +5,8 @@ isSubHeadline: false
 description: >-
   xAI 公开 Grok Bot 在客服场景的实际效果，Tesla 同步把类似能力带进车内； SpaceX继续向 Starship
   集中资源，商业发射市场感受到压力； 一个由大型货主组成的联盟把2500辆电池电动 Class 8 订单的主要位置给了Tesla Semi。
-title: Grok Bot 助力降本增效、SpaceX 收紧 Falcon 9 商单、Semi 拿下最大电动重卡订单
-cover: '@assets/images/articles/grok-bot-space-x-falcon-9-semi/cover.jpeg'
+title: 9月23日：Grok Bot 助力降本增效、SpaceX 收紧 Falcon 9 商单、Semi 拿下最大电动重卡订单
+cover: '@assets/images/articles/9-23-grok-bot-space-x-falcon-9-semi/cover.jpeg'
 category:
   - ai
   - daily
@@ -23,7 +23,7 @@ authors:
 
 ## xAI 利用 Grok Bot 客服，在工单暴增的情况下实现降本增效
 
-![](@assets/images/articles/grok-bot-space-x-falcon-9-semi/grok-bot-customer-support-phases-light-d64d8820.webp)
+![](@assets/images/articles/9-23-grok-bot-space-x-falcon-9-semi/grok-bot-customer-support-phases-light-d64d8820.webp)
 
 2026年9月22日，xAI 发布文章，详细说明自己如何用 Grok Bot 重建与 Cursor 合并后的客服体系。
 
@@ -35,8 +35,6 @@ Grok Bot 还被用来复盘人类与AI的回复质量、提出改进建议，并
 
 ## Tesla车内 Grok 可管理收件箱与日历
 
-![](@assets/images/articles/grok-bot-space-x-falcon-9-semi/image.png)
-
 同一天，Tesla 官方 X 账号宣布：车内 Grok 现在可以通过 Connectors 完成更多“有意义的工作”——管理收件箱，整理日历，讨论已有文件、聊天内容和任务，全程免手操作。只需要一次设置，即可在车内用语音调用。
 
 甚至可以执行更为复杂的任务（例如下单买杯咖啡、预订餐厅、安排预约日程）。部分车主已展示在 FSD 行驶中用语音完成下单等操作。
@@ -44,8 +42,6 @@ Grok Bot 还被用来复盘人类与AI的回复质量、提出改进建议，并
 这与 xAI 内部客服部署，属于同一技术能力在不同场景的延伸：一个在后台规模化处理工单，一个在驾驶场景中直接服务用户。
 
 ## SpaceX 进一步收紧 Falcon 9 商业发射订单
-
-![](@assets/images/articles/grok-bot-space-x-falcon-9-semi/image.png)
 
 《华尔街日报》报道，SpaceX 正在逐步退出 Falcon 9 的商业发射业务，重点转向 Starship，迫使卫星与航天器运营商寻找新的发射途径。
 
@@ -56,8 +52,6 @@ Grok Bot 还被用来复盘人类与AI的回复质量、提出改进建议，并
 如果 Falcon 9 商业发射供给在未来几年持续收紧，那么 Rocket Lab、Ariane 6、Vega C 等其他发射服务商理论上可能获得更多需求。小编比较关心 Rocket Lab 能否真正承接这部分需求。它取决于 Neutron 的首飞、认证、产能和商业化进度。预期中子火箭的首飞将在2026年底或2027年初。顺利的话，中子火箭正好能为 Falcon 9 接班送行。
 
 ## ZET SCALE 联盟首批2500辆电动 Class 8，Tesla 为主要供应商
-
-![](@assets/images/articles/grok-bot-space-x-falcon-9-semi/image.png)
 
 2026年9月22日，由 Catalyst Mobility（原 CALSTART ）与 Smart Freight Centre 联合运营的 ZET SCALE 联盟宣布，完成首批2500辆电动8级卡车（Class 8）的采购安排。
 

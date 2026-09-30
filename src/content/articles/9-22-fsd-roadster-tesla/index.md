@@ -5,8 +5,8 @@ isSubHeadline: false
 description: >-
   欧洲又一个国家批准 FSD，一段 Tesla 车载摄像头视频帮助一名司机摆脱刑事指控，同时公司又即将举行 Semi 活动、公布新一代
   Roadster，并继续推进 Grok 与汽车系统的融合。
-title: 从 FSD 捷克获批到 Roadster 回归：Tesla 的长期故事开始进入现实检验期
-cover: '@assets/images/articles/fsd-roadster-tesla/cover.png'
+title: 9月22日：从 FSD 捷克获批到 Roadster 回归：Tesla 的长期故事开始进入现实检验期
+cover: '@assets/images/articles/9-22-fsd-roadster-tesla/cover.png'
 category:
   - daily
   - ai
@@ -27,7 +27,7 @@ Tesla最近的新闻看起来有些零散：欧洲又有一个国家批准 FSD�
 
 ## 在欧洲，FSD 正在跨过一个重要门槛
 
-![](@assets/images/articles/fsd-roadster-tesla/%E6%88%AA%E5%B1%8F2026-09-22%2022.15.13.png)
+![](@assets/images/articles/9-22-fsd-roadster-tesla/%E6%88%AA%E5%B1%8F2026-09-22%2022.15.13.png)
 
 9月21日，捷克交通部确认，认可荷兰监管机构 RDW 对 Tesla FSD 作出的临时批准。这意味着 Tesla 的 FSD 可以按照相关条件在捷克使用。([md.gov.cz](https://md.gov.cz/?pgid=805))
 
@@ -39,7 +39,7 @@ Tesla最近的新闻看起来有些零散：欧洲又有一个国家批准 FSD�
 
 ## Grok 被越来越多地整合到 Tesla 车载交互系统中
 
-![](@assets/images/articles/fsd-roadster-tesla/tesla%20grok.png)
+![](@assets/images/articles/9-22-fsd-roadster-tesla/tesla%20grok.png)
 
 Grok 的变化往往没有那么容易成为头条。但从长期产品逻辑来看，它可能更加值得观察。
 
@@ -59,7 +59,7 @@ Grok 的变化往往没有那么容易成为头条。但从长期产品逻辑来
 
 ## 还有一个事情虽小，但却很有意思的案例
 
-![](@assets/images/articles/fsd-roadster-tesla/%E6%88%AA%E5%B1%8F2026-09-22%2022.30.52.png)
+![](@assets/images/articles/9-22-fsd-roadster-tesla/%E6%88%AA%E5%B1%8F2026-09-22%2022.30.52.png)
 
 最近，一辆 Tesla 的摄像头帮助佛罗里达一名司机解决了一起持续近两年的刑事案件。
 

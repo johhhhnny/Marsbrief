@@ -38,11 +38,11 @@ export const OTHER_LINKS: Link[] = [
     text: "关于我们",
   },
   /*
-    {
-      href: "/authors",
-      text: "作者列表",
-    },
-    {
+  {
+    href: "/authors",
+    text: "关于作者",
+  },
+   {
       href: "/contact",
       text: "联系我们",
     },

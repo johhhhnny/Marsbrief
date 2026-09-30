@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/base.astro"; // 导入基础布局组件（包
 import { getEntry } from "astro:content"; // 导入 Astro 内容集合 API，用于读取特定的 markdown/json 数据
 import Headlines from "@/pages/_home/headlines.astro"; // 导入首页专属的“头条”组件
 import LatestNews from "@/pages/_home/latestNews.astro"; // 导入首页专属的“最新新闻”组件
-import Authors from "@/pages/_home/authors.astro"; // 导入首页专属的“作者团队/专栏作者”组件
+import Authors from "@/pages/_home/authors.astro"; // 导入首页专属的“专栏作者”组件
 
 // 从 "views" 内容集合中获取标识为 "home" 的单页元数据配置（比如 SEO 相关的 title、description、OG 图片等）
 const entry = await getEntry("views", "home");
