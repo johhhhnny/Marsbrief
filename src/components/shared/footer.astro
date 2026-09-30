@@ -40,7 +40,7 @@ const categories = await categoriesHandler.allCategories();
       </nav>
     </div>
     <div class="divider w-full h-1"></div>
-    <div class="flex flex-col gap-4">
+    <div class="flex w-full flex-col gap-4">
       <nav>
         <div class="flex gap-4">
           <p class="font-bold">社交媒体：</p>
@@ -72,14 +72,11 @@ const categories = await categoriesHandler.allCategories();
           ))
         }
       </nav>
-      <div
-        class="mt-4 p-4 bg-base-200/50 rounded-lg text-xs text-base-content/70"
+      <p
+        class="mt-4 border-t border-base-300 pt-4 text-right text-xs text-base-content/60"
       >
-        <p class="font-bold mb-1">编辑说明：</p>
-        <p>
-          本网站内容用于信息分享与研究讨论。我们会尽力核实来源，但不保证所有内容完整、及时或没有错误；文章中的分析、推论与情景不应被视为确定性结论。
-        </p>
-      </div>
+        © {new Date().getFullYear()} 火星简报 MARS BRIEF 版权所有
+      </p>
     </div>
   </div>
 </footer>
