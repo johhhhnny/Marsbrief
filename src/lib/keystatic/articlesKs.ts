@@ -35,7 +35,8 @@ export const articlesKs = collection({
       label: "Cover Image（封面图）",
       directory: "src/assets/images/articles",
       publicPath: "@assets/images/articles/",
-      description: "可选。未上传封面时将使用默认图片。",
+      validation: { isRequired: true },
+      description: "请务必上传一张封面图。",
     }),
     category: checkboxGridMultiselect({
       label: "Categories (分类)",
