@@ -9,8 +9,13 @@ title: 9月22日：从 FSD 捷克获批到 Roadster 回归：Tesla 的长期故�
 cover: '@assets/images/articles/9-22-fsd-roadster-tesla/cover.png'
 category:
   - daily
-  - ai
+  - technology
+  - business
+  - policy
+tags:
+  - fsd
   - autonomy
+  - tesla
 publishedTime: 2026-09-22T22:01:00.000Z
 authors:
   - johnny

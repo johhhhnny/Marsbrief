@@ -9,7 +9,9 @@ title: 10月2日：特斯拉推出“紧急驶离”功能：充电遇险可直�
 cover: '@assets/images/articles/10-2-tesla-Emergency-Drive-Away--EVject/cover.png'
 category:
   - daily
-  - energy
+  - business
+tags:
+  - tesla
 publishedTime: 2026-10-02T01:15:00.000Z
 authors:
   - johnny

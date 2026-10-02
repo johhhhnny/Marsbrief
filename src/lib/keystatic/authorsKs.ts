@@ -1,5 +1,17 @@
 import { collection, fields } from "@keystatic/core";
 
+const authorEntries = import.meta.glob<{ name: string }>(
+  "../../content/authors/*/index.mdx",
+  { eager: true, import: "frontmatter" }
+);
+
+export const authorsOptions = Object.entries(authorEntries)
+  .map(([filePath, author]) => ({
+    label: author.name,
+    value: filePath.split("/").slice(-2, -1)[0],
+  }))
+  .sort((left, right) => left.label.localeCompare(right.label));
+
 export const authorsKs = collection({
   label: "Authors（作者）",
   slugField: "name",

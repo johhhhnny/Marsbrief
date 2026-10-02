@@ -11,7 +11,7 @@ export const articleSchema = (image: ImageFunction) =>
     title: z.string().max(60, "Too long, max 60 characters"),
     description: z.string().max(160, "Too long, max 160 characters"),
     category: z.array(reference("categories")).min(1),
-    tags: z.array(reference("tags")).default([]),
+    tags: z.array(z.string()).default([]),
     authors: z.array(reference("authors")).min(1),
     publishedTime: z.string().datetime().or(z.date()),
   });

@@ -10,8 +10,11 @@ title: 9月30日：FSD 入欧再下一城（克罗地亚）；柏林工厂为员
 cover: '@assets/images/articles/9-30-fsd-starlink-RDW-ETSC-SWISS/cover.jpg'
 category:
   - daily
-  - autonomy
-  - space
+  - policy
+  - business
+tags:
+  - fsd
+  - spacex
 publishedTime: 2026-09-30T10:34:00.000Z
 authors:
   - johnny

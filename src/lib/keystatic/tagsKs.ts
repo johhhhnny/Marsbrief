@@ -1,9 +1,22 @@
 import { collection, fields } from "@keystatic/core";
 
+const tagEntries = import.meta.glob<{ title: string }>(
+  "../../content/tags/*/index.json",
+  { eager: true, import: "default" }
+);
+
+export const tagsOptions = Object.entries(tagEntries)
+  .map(([filePath, tag]) => ({
+    label: tag.title,
+    value: filePath.split("/").slice(-2, -1)[0],
+  }))
+  .sort((left, right) => left.label.localeCompare(right.label));
+
 export const tagsKs = collection({
   label: "Tags (标签)",
   slugField: "title",
   path: "src/content/tags/*/",
+  columns: ["title"],
   format: { data: "json" },
   schema: {
     title: fields.slug({

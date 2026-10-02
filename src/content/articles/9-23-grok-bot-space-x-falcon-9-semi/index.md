@@ -8,9 +8,14 @@ description: >-
 title: 9月23日：Grok Bot 助力降本增效、SpaceX 收紧 Falcon 9 商单、Semi 拿下最大电动重卡订单
 cover: '@assets/images/articles/9-23-grok-bot-space-x-falcon-9-semi/cover.jpeg'
 category:
-  - ai
   - daily
-  - space
+  - technology
+  - business
+tags:
+  - xai
+  - spacex
+  - starship
+  - grok
 publishedTime: 2026-09-23T01:48:00.000Z
 authors:
   - johnny

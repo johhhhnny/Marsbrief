@@ -1,9 +1,25 @@
 import { collection, fields } from "@keystatic/core";
 
+const categoryEntries = import.meta.glob<{
+  title: string;
+  path: string;
+}>("../../content/categories/*/index.json", {
+  eager: true,
+  import: "default",
+});
+
+export const categoriesOptions = Object.entries(categoryEntries)
+  .map(([filePath, category]) => ({
+    label: category.title,
+    value: filePath.split("/").slice(-2, -1)[0],
+  }))
+  .sort((left, right) => left.label.localeCompare(right.label));
+
 export const categoriesKs = collection({
   label: "Categories(分类)",
   slugField: "title",
   path: "src/content/categories/*/",
+  columns: ["title"],
   format: { data: "json" },
   schema: {
     title: fields.slug({

@@ -1,4 +1,8 @@
 import { collection, fields } from "@keystatic/core";
+import { authorsOptions } from "./authorsKs";
+import { categoriesOptions } from "./categoriesKs";
+import { checkboxGridMultiselect } from "./checkboxGridMultiselect";
+import { tagsOptions } from "./tagsKs";
 
 export const articlesKs = collection({
   label: "Articles（文章）",
@@ -33,46 +37,26 @@ export const articlesKs = collection({
       publicPath: "@assets/images/articles/",
       description: "可选。未上传封面时将使用默认图片。",
     }),
-    category: fields.array(
-      fields.relationship({
-        label: "Category (分类)",
-        collection: "categories",
-      }),
-      {
-        label: "Categories (分类)",
-        itemLabel: (props) => props.value ?? "",
-        validation: { length: { min: 1 } },
-      }
-    ),
-    tags: fields.array(
-      fields.relationship({
-        label: "Tag (标签)",
-        collection: "tags",
-      }),
-      {
-        label: "Tags (标签)",
-        itemLabel: (props) => props.value ?? "",
-      }
-    ),
+    category: checkboxGridMultiselect({
+      label: "Categories (分类)",
+      description: "至少选择一个分类。",
+      options: categoriesOptions,
+      required: true,
+    }),
+    tags: checkboxGridMultiselect({
+      label: "Tags (标签)",
+      options: tagsOptions,
+    }),
     publishedTime: fields.datetime({
       label: "Published Time（发布时间）",
       validation: { isRequired: true },
     }),
-    authors: fields.array(
-      fields.relationship({
-        label: "Authors（作者）",
-        collection: "authors",
-      }),
-      {
-        label: "Authors（作者）",
-        itemLabel: (props) => props.value ?? "",
-        validation: {
-          length: {
-            min: 1,
-          },
-        },
-      }
-    ),
+    authors: checkboxGridMultiselect({
+      label: "Authors（作者）",
+      description: "至少选择一位作者。",
+      options: authorsOptions,
+      required: true,
+    }),
     content: fields.mdx({
       label: "Content（内容）",
       extension: "md",

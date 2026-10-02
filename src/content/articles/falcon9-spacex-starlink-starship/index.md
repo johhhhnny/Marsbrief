@@ -7,7 +7,12 @@ title: 猎鹰 9 号谢幕倒计时：SpaceX 为何放弃最成功的生意？
 cover: '@assets/images/articles/falcon9-spacex-starlink-starship/cover.jpg'
 category:
   - analysis
-  - space
+  - technology
+  - future
+tags:
+  - spacex
+  - starship
+  - rocket-lab
 publishedTime: 2026-09-24T12:08:00.000Z
 authors:
   - johnny

@@ -10,7 +10,12 @@ title: 星舰 14 飞：首次完成轨道飞行后，SpaceX真正跨过的是什
 cover: '@assets/images/articles/starship-flight-14-spacex-starlink-v3/cover.jpeg'
 category:
   - analysis
-  - space
+  - technology
+  - future
+tags:
+  - spacex
+  - starship
+  - starlink
 publishedTime: 2026-09-29T01:03:00.000Z
 authors:
   - johnny
