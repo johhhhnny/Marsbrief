@@ -50,6 +50,12 @@ if (!entry) {
       <Headlines />
     </div>
   </div>
-  <CategorySection categoryId="daily" title="每日简报" limit={6} />
+  <CategorySection
+    categoryId="daily"
+    title="每日简报"
+    limit={6}
+    showDescription={false}
+    clampTitle={false}
+  />
   <CategorySection categoryId="analysis" title="深度分析" limit={3} />
 </BaseLayout>

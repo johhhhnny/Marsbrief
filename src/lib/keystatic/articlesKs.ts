@@ -4,6 +4,49 @@ import { categoriesOptions } from "./categoriesKs";
 import { checkboxGridMultiselect } from "./checkboxGridMultiselect";
 import { tagsOptions } from "./tagsKs";
 
+const publishedTimeField = fields.datetime({
+  label: "Published Time（发布时间）",
+  validation: { isRequired: true },
+});
+
+const formatLocalDateTime = (date: Date) => {
+  const pad = (value: number) => String(value).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+};
+
+const readStoredDate = (value: unknown) => {
+  const date =
+    value instanceof Date
+      ? value
+      : typeof value === "string"
+        ? new Date(value)
+        : null;
+  return date && !Number.isNaN(date.getTime()) ? date : null;
+};
+
+const localPublishedTimeField = {
+  ...publishedTimeField,
+  parse(value: Parameters<typeof publishedTimeField.parse>[0]) {
+    const parsed = publishedTimeField.parse(value);
+    if (parsed === null) return null;
+    const date = readStoredDate(value);
+    return date ? formatLocalDateTime(date) : parsed;
+  },
+  serialize(value: Parameters<typeof publishedTimeField.serialize>[0]) {
+    if (value === null) return publishedTimeField.serialize(value);
+    const utcDateTime = new Date(value).toISOString().slice(0, 16);
+    return publishedTimeField.serialize(utcDateTime);
+  },
+  reader: {
+    parse(value: Parameters<typeof publishedTimeField.reader.parse>[0]) {
+      const parsed = publishedTimeField.reader.parse(value);
+      if (parsed === null) return null;
+      const date = readStoredDate(value);
+      return date ? formatLocalDateTime(date) : parsed;
+    },
+  },
+};
+
 export const articlesKs = collection({
   label: "Articles（文章）",
   slugField: "title",
@@ -48,10 +91,7 @@ export const articlesKs = collection({
       label: "Tags (标签)",
       options: tagsOptions,
     }),
-    publishedTime: fields.datetime({
-      label: "Published Time（发布时间）",
-      validation: { isRequired: true },
-    }),
+    publishedTime: localPublishedTimeField,
     authors: checkboxGridMultiselect({
       label: "Authors（作者）",
       description: "至少选择一位作者。",

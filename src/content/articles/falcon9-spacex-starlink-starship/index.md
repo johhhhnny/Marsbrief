@@ -1,6 +1,6 @@
 ---
 isDraft: false
-isMainHeadline: true
+isMainHeadline: false
 isSubHeadline: false
 description: SpaceX 正在逐步放弃自己最成功的产品——猎鹰9号。但它不是被 SpaceX 抛弃，而更像它完成了自己的使命。
 title: 猎鹰 9 号谢幕倒计时：SpaceX 为何放弃最成功的生意？
@@ -8,7 +8,6 @@ cover: '@assets/images/articles/falcon9-spacex-starlink-starship/cover.jpg'
 category:
   - analysis
   - technology
-  - future
 tags:
   - spacex
   - starship

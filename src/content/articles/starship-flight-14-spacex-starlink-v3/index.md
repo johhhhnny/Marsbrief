@@ -1,6 +1,6 @@
 ---
 isDraft: false
-isMainHeadline: true
+isMainHeadline: false
 isSubHeadline: false
 description: >-
   2026年9月28日，SpaceX 的 Starship
@@ -11,7 +11,6 @@ cover: '@assets/images/articles/starship-flight-14-spacex-starlink-v3/cover.jpeg
 category:
   - analysis
   - technology
-  - future
 tags:
   - spacex
   - starship

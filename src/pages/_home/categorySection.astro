@@ -8,9 +8,17 @@ type Props = {
   categoryId: string;
   title: string;
   limit: number;
+  showDescription?: boolean;
+  clampTitle?: boolean;
 };
 
-const { categoryId, title, limit } = Astro.props;
+const {
+  categoryId,
+  title,
+  limit,
+  showDescription = true,
+  clampTitle = true,
+} = Astro.props;
 const [category, allArticles] = await Promise.all([
   categoriesHandler.oneCategory(categoryId),
   articlesHandler.allArticles(),
@@ -33,7 +41,12 @@ const articles = category
       />
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 gap-y-6">
         {articles.slice(0, limit).map((article, index) => (
-          <NewsCard article={article} index={index} />
+          <NewsCard
+            article={article}
+            index={index}
+            showDescription={showDescription}
+            clampTitle={clampTitle}
+          />
         ))}
       </div>
     </section>
