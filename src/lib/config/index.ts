@@ -10,7 +10,7 @@ export const SITE = {
   dir: "ltr",
   charset: "UTF-8",
   basePath: "/",
-  postsPerPage: 4,
+  postsPerPage: 10,
 };
 
 export const NAVIGATION_LINKS: Link[] = [
@@ -21,14 +21,6 @@ export const NAVIGATION_LINKS: Link[] = [
   {
     href: "/categories/analysis",
     text: "深度分析",
-  },
-  {
-    href: "/categories/musk",
-    text: "Musk 生态",
-  },
-  {
-    href: "/categories/ai",
-    text: "AI 与机器人",
   },
 ];
 
