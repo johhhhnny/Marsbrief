@@ -44,6 +44,16 @@ export const articlesKs = collection({
         validation: { length: { min: 1 } },
       }
     ),
+    tags: fields.array(
+      fields.relationship({
+        label: "Tag (标签)",
+        collection: "tags",
+      }),
+      {
+        label: "Tags (标签)",
+        itemLabel: (props) => props.value ?? "",
+      }
+    ),
     publishedTime: fields.datetime({
       label: "Published Time（发布时间）",
       validation: { isRequired: true },

@@ -4,6 +4,7 @@ import {
   articleSchema,
   authorSchema,
   categorySchema,
+  tagSchema,
   viewSchema,
 } from "@/lib/schema";
 
@@ -25,6 +26,11 @@ const categoryCollection = defineCollection({
   schema: categorySchema,
 });
 
+const tagCollection = defineCollection({
+  loader: glob({ pattern: "**/index.json", base: "./src/content/tags" }),
+  schema: tagSchema,
+});
+
 const authorCollection = defineCollection({
   loader: glob({ pattern: "**/index.mdx", base: "./src/content/authors" }),
   schema: ({ image }) => authorSchema(image),
@@ -34,5 +40,6 @@ export const collections = {
   articles: articleCollection,
   views: viewCollection,
   categories: categoryCollection,
+  tags: tagCollection,
   authors: authorCollection,
 };
