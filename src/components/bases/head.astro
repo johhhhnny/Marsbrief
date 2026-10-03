@@ -46,6 +46,24 @@ const OGImage = new URL(meta.ogImage, Astro.url).href;
     });
   </script>
 
+  {
+    import.meta.env.PROD && (
+      <>
+        <script
+          is:inline
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XNDPGCX8WL"
+        ></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          gtag("js", new Date());
+          gtag("config", "G-XNDPGCX8WL");
+        </script>
+      </>
+    )
+  }
+
   <!-- Global Metadata -->
   <meta charset={SITE.charset} />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
