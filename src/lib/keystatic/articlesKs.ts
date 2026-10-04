@@ -2,6 +2,7 @@ import { collection, fields } from "@keystatic/core";
 import { authorsOptions } from "./authorsKs";
 import { categoriesOptions } from "./categoriesKs";
 import { checkboxGridMultiselect } from "./checkboxGridMultiselect";
+import { embedMedia } from "./embedMedia";
 import { tagsOptions } from "./tagsKs";
 
 const publishedTimeField = fields.datetime({
@@ -101,6 +102,7 @@ export const articlesKs = collection({
     content: fields.mdx({
       label: "Content（内容）",
       extension: "md",
+      components: { EmbedMedia: embedMedia },
       options: {
         image: {
           directory: "src/assets/images/articles",

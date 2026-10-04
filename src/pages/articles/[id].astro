@@ -58,3 +58,49 @@ const { Content, remarkPluginFrontmatter } = await render(article);
     <GiscusComments term={article.data.title} />
   </ContentLayout>
 </BaseLayout>
+
+<script>
+  const embeds = document.querySelectorAll<HTMLElement>("[data-x-post-id]");
+  if (embeds.length > 0) {
+    const script = document.createElement("script");
+    script.src = "https://platform.x.com/widgets.js";
+    script.async = true;
+    script.charset = "utf-8";
+    script.addEventListener(
+      "load",
+      () => {
+        const widgets = (
+          window as Window & {
+            twttr?: {
+              widgets?: {
+                createTweet: (
+                  id: string,
+                  target: HTMLElement,
+                  options?: { dnt?: boolean },
+                ) => Promise<unknown>;
+              };
+            };
+          }
+        ).twttr?.widgets;
+
+        if (!widgets) return;
+
+        embeds.forEach((embed) => {
+          const postId = embed.dataset.xPostId;
+          if (!postId) return;
+
+          void widgets
+            .createTweet(postId, embed, { dnt: true })
+            .then(() =>
+              embed.parentElement
+                ?.querySelector("[data-x-post-fallback]")
+                ?.remove(),
+            )
+            .catch(() => {});
+        });
+      },
+      { once: true },
+    );
+    document.head.appendChild(script);
+  }
+</script>
