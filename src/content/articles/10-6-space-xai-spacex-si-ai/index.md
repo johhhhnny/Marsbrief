@@ -5,7 +5,7 @@ isSubHeadline: false
 description: >-
   马斯克正在从人工智能业务中删去"AI"字眼。继其在 X 平台发文"不再用AI"、并表示 SI 更好之后，他又确认 SpaceXAI 将更名为
   SpaceXSI，即 SpaceX Super Intelligence（SpaceX 超级智能）。
-title: 马斯克宣布 SpaceXAI 更名 SpaceXSI——弃用​ AI ，成为超级智能​
+title: 马斯克宣布 SpaceXAI 更名 SpaceXSI，弃用​ AI ，成为超级智能​
 cover: '@assets/images/articles/10-6-space-xai-spacex-si-ai/cover.jpeg'
 category:
   - daily
