@@ -5,7 +5,7 @@ isSubHeadline: false
 description: >-
   脑机接口公司 Neuralink 10 月 1 日发布技术更新，称其开始将临床试验参与者累计超过 5
   万小时的神经记录投入解码器训练，以改善光标控制、缩短校准时间，并创下11.32 BPS 的​脑机接口（BCI）性能新纪录。
-title: 10月4日：Neuralink 5 万小时脑数据训练解码器，创脑机接口性能​新纪录
+title: Neuralink 5 万小时脑数据训练解码器，创脑机接口性能​新纪录
 cover: '@assets/images/articles/10-4-neuralink-5-BCI/cover.jpg'
 category:
   - technology

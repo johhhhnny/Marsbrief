@@ -6,7 +6,7 @@ description: >-
   今天主要为大家分享特斯拉和 SpaceX 在欧洲的消息：一是 FSD
   进入欧洲方面的进展，包括克罗地亚成为第八个允许该系统使用的欧洲国家，和欧洲运输安全委员会对 FSD
   的阻挠；二是特斯拉生产主动提高柏林工厂的薪资待遇；三是瑞士航空为旗下机队部署 Starlink。 
-title: 9月30日：FSD 入欧再下一城（克罗地亚）；柏林工厂为员工提薪；​Starlink 入驻瑞士航空
+title: FSD 入欧再下一城（克罗地亚）；柏林工厂为员工提薪；​Starlink 入驻瑞士航空
 cover: '@assets/images/articles/9-30-fsd-starlink-RDW-ETSC-SWISS/cover.jpg'
 category:
   - daily

@@ -6,7 +6,7 @@ description: >-
   一项由欧洲交通与环境联合会（Transport &
   Environment，T&E）发布的新分析显示，如果目前规划中的电池项目能够按计划落地，到2030年，欧洲将有能力生产足够的本土电池，满足欧盟《工业加速法案》（Industrial
   Accelerator Act，IAA）覆盖的部分电动汽车需求。
-title: 10月1日：长痛还是短痛？欧洲电池产业链有望满足2030年需求，但中游材料仍是最大瓶颈
+title: 长痛还是短痛？欧洲电池产业链有望满足2030年需求，但中游材料仍是最大瓶颈
 cover: '@assets/images/articles/10-1-euro-TE-IAA-CAM-pCAM-ACEA-BASF-Umicore/cover.jpg'
 category:
   - daily

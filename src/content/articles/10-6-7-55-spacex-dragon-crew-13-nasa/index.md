@@ -3,7 +3,7 @@ isDraft: false
 isMainHeadline: false
 isSubHeadline: false
 description: SpaceX 的 Crew-13 载人龙飞船仅用不到 8 小时便与国际空间站对接。NASA 已确认这一里程碑创下美国航天器从发射到对接的最快纪录。
-title: 10月6日：7小时55分！SpaceX 载人龙飞船刷新美国最快纪录
+title: 7小时55分！SpaceX 载人龙飞船刷新美国最快纪录
 cover: '@assets/images/articles/10-6-7-55-spacex-dragon-crew-13-nasa/cover.jpeg'
 category:
   - daily

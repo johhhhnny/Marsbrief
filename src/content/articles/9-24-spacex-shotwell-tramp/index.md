@@ -5,7 +5,7 @@ isSubHeadline: false
 description: >-
   9月24日，SpaceX 有约3.28亿股获得出售资格。总裁兼 COO Shotwell 减持5200万美元 SpaceX
   股票。公开的财务披露显示，特朗普名下投资账户在7月10日买入了价值15,001至50,000美元的 SpaceX 股票。
-title: 9月24日：再迎解禁、总裁减持，SpaceX 的真正考验才刚刚开始
+title: 再迎解禁、总裁减持，SpaceX 的真正考验才刚刚开始
 cover: '@assets/images/articles/9-24-spacex-shotwell-tramp/cover.jpg'
 category:
   - daily

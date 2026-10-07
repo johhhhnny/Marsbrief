@@ -3,7 +3,7 @@ isDraft: false
 isMainHeadline: false
 isSubHeadline: false
 description: 奥斯汀一名乘客表示，他乘坐的 Cybercab 无人出租车于10月5日（周一）被困停车场约14分钟——车辆因无法重新规划路线，绕圈行驶了7分钟仍开不出去。
-title: 10月6日：Cybercab 被困停车场14分钟，靠远程重启脱困
+title: Cybercab 被困停车场14分钟，靠远程重启脱困
 cover: '@assets/images/articles/10-6-cybercab-14-David-Moss/cover.png'
 category:
   - daily

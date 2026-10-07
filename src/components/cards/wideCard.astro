@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import { getDateDistance, normalizeDate } from "@/lib/utils/date";
+import { formatDate, normalizeDate } from "@/lib/utils/date";
 import Divider from "../bases/divider.astro";
 import { categoriesHandler } from "@/lib/handlers/categories";
 
@@ -25,7 +25,7 @@ const imageProps =
   <div
     class="flex-shrink-0 aspect-square w-32 text-sm text-base-content/60 text-pretty capitalize hidden lg:flex pt-1"
   >
-    {getDateDistance(normalizeDate(article.data.publishedTime))}
+    {formatDate(normalizeDate(article.data.publishedTime), "short")}
   </div>
   <div
     class:list={[
@@ -63,7 +63,7 @@ const imageProps =
         datetime={normalizeDate(article.data.publishedTime)}
       >
         <span>
-          {getDateDistance(normalizeDate(article.data.publishedTime))}
+          {formatDate(normalizeDate(article.data.publishedTime), "short")}
         </span>
       </time>
       <Divider />

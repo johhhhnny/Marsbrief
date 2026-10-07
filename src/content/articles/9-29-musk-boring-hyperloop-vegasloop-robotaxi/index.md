@@ -5,7 +5,7 @@ isSubHeadline: false
 description: >-
   埃隆·马斯克透露，The Boring Company
   正在积极规划一条连接奥斯汀与圣安东尼奥的高速地下交通线路。按照目前披露的设想，这将是一条大约80英里（约129公里）的地下隧道，目标运行速度超过200英里/小时，也就是约322公里/小时。
-title: 9月29日：马斯克要让奥斯汀和圣安东尼奥30分钟通勤变成现实？
+title: 马斯克要让奥斯汀和圣安东尼奥30分钟通勤变成现实？
 cover: >-
   @assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/cover.jpeg
 category:

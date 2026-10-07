@@ -5,7 +5,7 @@ isSubHeadline: false
 description: >-
   特斯拉推出了一项名为“紧急驶离”（Emergency Drive
   Away）的新功能，允许车主在充电时无需下车拔掉充电枪即可驶离充电站，为充电过程中遭遇危险的车主提供一条逃生通道。但这项功能也有一个需要注意的代价。
-title: 10月2日：特斯拉推出“紧急驶离”功能：充电遇险可直接开走，但车辆和充电设备会受损
+title: 特斯拉推出“紧急驶离”功能：充电遇险可直接开走，但车辆和充电设备会受损
 cover: '@assets/images/articles/10-2-tesla-Emergency-Drive-Away--EVject/cover.png'
 category:
   - daily

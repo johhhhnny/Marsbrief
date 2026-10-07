@@ -3,7 +3,7 @@ isDraft: false
 isMainHeadline: false
 isSubHeadline: false
 description: Starlink 正在为普通用户​和本地运营者开通一条新的营收​通道：把一套 Starlink 终端变成一个小型的网络​共享接入业务，赚取 "被动收入"。
-title: 10月5日：让闲置卫星天线 "赚钱"：Starlink 推出社区计划，普通房东可分享网络赚取收入
+title: 让闲置卫星天线 "赚钱"：Starlink 推出社区计划，普通房东可分享网络赚取收入
 cover: '@assets/images/articles/10-5-starlink-share/cover.webp'
 category:
   - business
