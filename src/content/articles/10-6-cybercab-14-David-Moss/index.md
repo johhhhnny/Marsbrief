@@ -7,11 +7,11 @@ title: Cybercab 被困停车场14分钟，靠远程重启脱困
 cover: '@assets/images/articles/10-6-cybercab-14-David-Moss/cover.png'
 category:
   - daily
-  - business
 tags:
   - autonomy
   - robotaxi
   - tesla
+  - business
 publishedTime: 2026-10-06T01:01:00.000Z
 authors:
   - johnny

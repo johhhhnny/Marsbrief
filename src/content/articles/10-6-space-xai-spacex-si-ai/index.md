@@ -9,12 +9,12 @@ title: 马斯克宣布 SpaceXAI 更名 SpaceXSI，弃用​ AI ，成为超级�
 cover: '@assets/images/articles/10-6-space-xai-spacex-si-ai/cover.jpeg'
 category:
   - daily
-  - business
 tags:
   - musk
   - spacex
   - xai
   - ai
+  - business
 publishedTime: 2026-10-06T13:39:00.000Z
 authors:
   - johnny

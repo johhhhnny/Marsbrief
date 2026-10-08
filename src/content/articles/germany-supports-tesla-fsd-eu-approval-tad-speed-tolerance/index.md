@@ -10,7 +10,6 @@ cover: >-
   @assets/images/articles/germany-supports-tesla-fsd-eu-approval-tad-speed-tolerance/cover.jpg
 category:
   - daily
-  - policy
 tags:
   - policy
   - autonomy

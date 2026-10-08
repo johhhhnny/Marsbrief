@@ -10,9 +10,9 @@ cover: >-
   @assets/images/articles/google-ai-content-identification-tool-synthid/cover.png
 category:
   - daily
-  - business
 tags:
   - ai
+  - business
 publishedTime: 2026-10-08T12:06:00.000Z
 authors:
   - johnny

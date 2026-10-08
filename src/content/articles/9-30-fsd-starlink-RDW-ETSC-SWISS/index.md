@@ -10,11 +10,11 @@ title: FSD 入欧再下一城（克罗地亚）；柏林工厂为员工提薪；
 cover: '@assets/images/articles/9-30-fsd-starlink-RDW-ETSC-SWISS/cover.jpg'
 category:
   - daily
-  - policy
-  - business
 tags:
   - fsd
   - spacex
+  - policy
+  - business
 publishedTime: 2026-09-30T10:34:00.000Z
 authors:
   - johnny

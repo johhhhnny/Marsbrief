@@ -8,7 +8,6 @@ description: >-
 title: 加州新法——Robotaxi 阻碍急救车辆超时将被罚款
 cover: '@assets/images/articles/10-2-robotaxi-waymo-zoox-tesla-DMV/cover.jpeg'
 category:
-  - policy
   - daily
 tags:
   - robotaxi

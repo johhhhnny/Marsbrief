@@ -10,7 +10,6 @@ title: 长痛还是短痛？欧洲电池产业链有望满足2030年需求，但
 cover: '@assets/images/articles/10-1-euro-TE-IAA-CAM-pCAM-ACEA-BASF-Umicore/cover.jpg'
 category:
   - daily
-  - policy
 tags:
   - battery
   - policy

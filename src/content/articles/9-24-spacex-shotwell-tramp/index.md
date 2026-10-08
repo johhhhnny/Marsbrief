@@ -9,10 +9,10 @@ title: 再迎解禁、总裁减持，SpaceX 的真正考验才刚刚开始
 cover: '@assets/images/articles/9-24-spacex-shotwell-tramp/cover.jpg'
 category:
   - daily
-  - finance
 tags:
   - spacex
   - market
+  - finance
 publishedTime: 2026-09-24T17:55:00.000Z
 authors:
   - johnny

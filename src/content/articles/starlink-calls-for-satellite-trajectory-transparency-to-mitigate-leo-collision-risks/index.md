@@ -10,10 +10,10 @@ cover: >-
   @assets/images/articles/starlink-calls-for-satellite-trajectory-transparency-to-mitigate-leo-collision-risks/cover.jpeg
 category:
   - daily
-  - business
 tags:
   - starlink
   - spacex
+  - business
 publishedTime: 2026-10-07T12:19:00.000Z
 authors:
   - johnny

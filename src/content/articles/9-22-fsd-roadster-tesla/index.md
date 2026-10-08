@@ -9,13 +9,13 @@ title: 从 FSD 捷克获批到 Roadster 回归：Tesla 的长期故事开始进�
 cover: '@assets/images/articles/9-22-fsd-roadster-tesla/cover.png'
 category:
   - daily
-  - technology
-  - business
-  - policy
 tags:
   - fsd
   - autonomy
   - tesla
+  - policy
+  - technology
+  - business
 publishedTime: 2026-09-22T22:01:00.000Z
 authors:
   - johnny

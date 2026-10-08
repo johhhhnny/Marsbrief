@@ -8,11 +8,11 @@ description: >-
 title: Neuralink 5 万小时脑数据训练解码器，创脑机接口性能​新纪录
 cover: '@assets/images/articles/10-4-neuralink-5-BCI/cover.jpg'
 category:
-  - technology
   - daily
 tags:
   - neuralink
   - ai
+  - technology
 publishedTime: 2026-10-03T16:12:00.000Z
 authors:
   - johnny

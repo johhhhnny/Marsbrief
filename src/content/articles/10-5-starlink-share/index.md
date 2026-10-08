@@ -6,11 +6,11 @@ description: Starlink 正在为普通用户​和本地运营者开通一条新�
 title: 让闲置卫星天线 "赚钱"：Starlink 推出社区计划，普通房东可分享网络赚取收入
 cover: '@assets/images/articles/10-5-starlink-share/cover.webp'
 category:
-  - business
   - daily
 tags:
   - starlink
   - spacex
+  - business
 publishedTime: 2026-10-04T16:37:00.000Z
 authors:
   - johnny

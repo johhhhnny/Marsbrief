@@ -7,11 +7,11 @@ title: 7小时55分！SpaceX 载人龙飞船刷新美国最快纪录
 cover: '@assets/images/articles/10-6-7-55-spacex-dragon-crew-13-nasa/cover.jpeg'
 category:
   - daily
-  - technology
 tags:
   - spacex
   - dragon
   - falcon9
+  - technology
 publishedTime: 2026-10-06T12:09:00.000Z
 authors:
   - johnny

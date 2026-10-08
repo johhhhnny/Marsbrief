@@ -10,9 +10,10 @@ cover: >-
   @assets/images/articles/google-ai-game-creation-platform-cloud-gaming/cover.png
 category:
   - daily
-  - technology
 tags:
   - ai
+  - technology
+  - business
 publishedTime: 2026-10-08T12:50:00.000Z
 authors:
   - johnny

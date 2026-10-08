@@ -9,13 +9,13 @@ title: Grok Bot 助力降本增效、SpaceX 收紧 Falcon 9 商单、Semi 拿下
 cover: '@assets/images/articles/9-23-grok-bot-space-x-falcon-9-semi/cover.jpeg'
 category:
   - daily
-  - technology
-  - business
 tags:
   - xai
   - spacex
   - starship
   - grok
+  - technology
+  - business
 publishedTime: 2026-09-23T01:48:00.000Z
 authors:
   - johnny

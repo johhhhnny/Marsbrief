@@ -10,12 +10,12 @@ cover: >-
   @assets/images/articles/9-29-musk-boring-hyperloop-vegasloop-robotaxi/cover.jpeg
 category:
   - daily
-  - technology
-  - business
 tags:
   - boring-company
   - fsd
   - robotaxi
+  - technology
+  - business
 publishedTime: 2026-09-29T06:01:00.000Z
 authors:
   - johnny
