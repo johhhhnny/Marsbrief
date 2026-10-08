@@ -3,9 +3,10 @@ import type { Link } from "@/lib/types";
 
 type Props = {
   item: Link;
+  appendPage?: boolean;
 };
 const currentPath = Astro.url.pathname;
-const { item } = Astro.props;
+const { item, appendPage = true } = Astro.props;
 
 function isActive(item: Link, currentPath: string) {
   const segment = currentPath.split("/")[2];
@@ -20,8 +21,8 @@ function isActive(item: Link, currentPath: string) {
   );
 }
 
-function formatHref(href: string) {
-  return href === "/" ? "/" : `${href}/1`;
+function formatHref(href: string, shouldAppendPage: boolean) {
+  return href === "/" || !shouldAppendPage ? href : `${href}/1`;
 }
 ---
 
@@ -33,5 +34,7 @@ function formatHref(href: string) {
       : "after:bg-transparent",
   ]}
 >
-  <a href={formatHref(item.href)} aria-label={item.text}>{item.text}</a>
+  <a href={formatHref(item.href, appendPage)} aria-label={item.text}>
+    {item.text}
+  </a>
 </li>

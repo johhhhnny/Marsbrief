@@ -1,0 +1,18 @@
+---
+import { tagsHandler } from "@/lib/handlers/tags";
+
+export async function getStaticPaths() {
+  const tags = await tagsHandler.allTagsWithArticleCounts();
+
+  return tags.map(({ slug }) => ({
+    params: { tag: slug },
+    props: { redirectTarget: slug },
+  }));
+}
+
+const { redirectTarget } = Astro.props;
+const { tag } = Astro.params;
+const target = redirectTarget || tag;
+---
+
+<meta http-equiv="refresh" content={`0; url=${`/tags/${target}/1`}`} />

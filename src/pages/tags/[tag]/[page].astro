@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getEntry } from "astro:content";
+import ListLayout from "@/layouts/list.astro";
+import Pagination from "@/components/shared/pagination.astro";
+import WideCard from "@/components/cards/wideCard.astro";
+import { SITE } from "@/lib/config";
+import { tagsHandler } from "@/lib/handlers/tags";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const tags = await tagsHandler.allTagsWithArticleCounts();
+
+  return tags.flatMap(({ tag, slug, articles, count }) =>
+    paginate(articles, {
+      params: { tag: slug },
+      props: { currentTag: tag, tagSlug: slug, postsLength: count },
+      pageSize: SITE.postsPerPage,
+    }),
+  );
+}) satisfies GetStaticPaths;
+
+const { page, currentTag, tagSlug, postsLength } = Astro.props;
+const articles = page.data;
+const entry = await getEntry("views", "tags");
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+---
+
+<ListLayout
+  header={`${currentTag.data.title} · ${postsLength} 篇文章`}
+  entry={entry}
+>
+  <section class="flex-1">
+    <ul class="flex flex-col gap-4">
+      {
+        articles.map((article) => (
+          <WideCard
+            article={article}
+            isLast={articles.lastIndexOf(article) === articles.length - 1}
+            coverFirst
+          />
+        ))
+      }
+    </ul>
+  </section>
+  {
+    postsLength > SITE.postsPerPage && (
+      <Pagination
+        length={page.lastPage}
+        currentUrl={page.url.current}
+        currentPage={page.currentPage}
+        baseUrl={`/tags/${tagSlug}`}
+        prevUrl={page.url.prev}
+        nextUrl={page.url.next}
+        lastUrl={`/tags/${tagSlug}/${page.lastPage}`}
+      />
+    )
+  }
+</ListLayout>

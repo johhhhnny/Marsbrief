@@ -8,6 +8,7 @@ import Calendar04 from "@/assets/svgs/calendar-04.astro";
 import Divider from "@/components/bases/divider.astro";
 import { categoriesHandler } from "@/lib/handlers/categories";
 import { authorsHandler } from "@/lib/handlers/authors";
+import { tagsHandler } from "@/lib/handlers/tags";
 import Share from "@/components/elements/share.astro";
 
 type Props = {
@@ -20,6 +21,7 @@ const { article, readingTime } = Astro.props;
 const categories = await categoriesHandler.allCategoriesForArticle(article);
 const primaryCategory = categories.find((category) => category);
 const authors = await authorsHandler.getAuthors(article.data.authors);
+const tags = await tagsHandler.tagsForArticle(article);
 
 const imageProps =
   typeof article.data.cover === "string"
@@ -133,6 +135,21 @@ const imageProps =
         </div>
         <Share text={article.data.title} />
       </div>
+      {
+        tags.length > 0 && (
+          <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            {tags.map(({ tag, slug }) => (
+              <a
+                href={`/tags/${slug}`}
+                class="text-primary hover:underline"
+                rel="tag"
+              >
+                #{tag.data.title}
+              </a>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </section>

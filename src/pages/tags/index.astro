@@ -1,0 +1,56 @@
+---
+import { getEntry } from "astro:content";
+import ListLayout from "@/layouts/list.astro";
+import { tagsHandler } from "@/lib/handlers/tags";
+
+const entry = await getEntry("views", "tags");
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+const [header] = entry.data.blocks;
+const tags = await tagsHandler.allTagsWithArticleCounts();
+const articleCounts = tags.map(({ count }) => count);
+const minArticleCount = articleCounts.length ? Math.min(...articleCounts) : 0;
+const maxArticleCount = articleCounts.length ? Math.max(...articleCounts) : 0;
+const minLogCount = Math.log1p(minArticleCount);
+const logCountRange = Math.log1p(maxArticleCount) - minLogCount;
+
+const fontSizeForCount = (count: number) => {
+  const weight = logCountRange
+    ? (Math.log1p(count) - minLogCount) / logCountRange
+    : 0;
+  return (1 + weight * 0.75).toFixed(2);
+};
+---
+
+<ListLayout header={header.title} entry={entry}>
+  <ul
+    class="flex w-full list-none flex-wrap items-baseline justify-center gap-x-8 gap-y-6 py-8"
+  >
+    {
+      tags.map(({ tag, slug, count }) => (
+        <li>
+          <a
+            href={`/tags/${slug}`}
+            class="tag-cloud-link font-semibold text-base-content hover:text-primary hover:underline"
+            style={`--tag-size: ${fontSizeForCount(count)}rem`}
+            aria-label={`${tag.data.title}，${count} 篇文章`}
+          >
+            {tag.data.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ListLayout>
+
+<style>
+  .tag-cloud-link {
+    display: inline-block;
+    font-size: var(--tag-size);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+</style>
