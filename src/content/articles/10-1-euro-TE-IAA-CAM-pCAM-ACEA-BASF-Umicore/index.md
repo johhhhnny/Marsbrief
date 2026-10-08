@@ -13,7 +13,7 @@ category:
   - policy
 tags:
   - battery
-  - Policy
+  - policy
 publishedTime: 2026-10-01T08:29:00.000Z
 authors:
   - johnny

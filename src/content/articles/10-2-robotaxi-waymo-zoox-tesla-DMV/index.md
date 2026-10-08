@@ -12,7 +12,7 @@ category:
   - daily
 tags:
   - robotaxi
-  - Policy
+  - policy
   - autonomy
   - waymo
   - tesla

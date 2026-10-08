@@ -3,9 +3,11 @@ import { render } from "astro:content";
 import BaseLayout from "@/layouts/base.astro";
 import ContentLayout from "@/layouts/content.astro";
 import ArticleHeader from "./_components/article-header.astro";
+import NewsCard from "@/components/cards/newsCard.astro";
 import GiscusComments from "@/components/elements/giscus-comments.astro";
 
 import { articlesHandler } from "@/lib/handlers/articles";
+import { categoriesHandler } from "@/lib/handlers/categories";
 
 export const getStaticPaths = async () => {
   const articles = await articlesHandler.allArticles();
@@ -18,6 +20,65 @@ export const getStaticPaths = async () => {
 const { article } = Astro.props;
 
 const { Content, remarkPluginFrontmatter } = await render(article);
+const [allArticles, articleCategories] = await Promise.all([
+  articlesHandler.allArticles(),
+  categoriesHandler.allCategoriesForArticle(article),
+]);
+const normalizeTag = (tag: string) => tag.trim().toLowerCase();
+const articleTags = new Set(article.data.tags.map(normalizeTag));
+const taggedRelatedArticles = allArticles
+  .filter((candidate) => candidate.id !== article.id)
+  .map((candidate) => {
+    const candidateTags = new Set(candidate.data.tags.map(normalizeTag));
+    const sharedTagCount = [...articleTags].filter((tag) =>
+      candidateTags.has(tag),
+    ).length;
+    const sharedCategoryCount = articleCategories.reduce((count, category) => {
+      if (!category) return count;
+
+      const sharesCategory =
+        categoriesHandler.articleHasCategory(candidate, category.id) ||
+        categoriesHandler.articleHasCategory(candidate, category.data.path);
+
+      return count + Number(sharesCategory);
+    }, 0);
+
+    return { candidate, sharedTagCount, sharedCategoryCount };
+  })
+  .filter(({ sharedTagCount }) => sharedTagCount > 0)
+  .sort(
+    (a, b) =>
+      b.sharedTagCount - a.sharedTagCount ||
+      b.sharedCategoryCount - a.sharedCategoryCount ||
+      new Date(b.candidate.data.publishedTime).getTime() -
+        new Date(a.candidate.data.publishedTime).getTime(),
+  );
+const selectedTagRelatedArticles = taggedRelatedArticles
+  .slice(0, 3)
+  .map(({ candidate }) => candidate);
+const selectedArticleIds = new Set(
+  selectedTagRelatedArticles.map((candidate) => candidate.id),
+);
+const categoryFallbackArticles = allArticles
+  .filter(
+    (candidate) =>
+      candidate.id !== article.id &&
+      !selectedArticleIds.has(candidate.id) &&
+      articleCategories.some(
+        (category) =>
+          category &&
+          (categoriesHandler.articleHasCategory(candidate, category.id) ||
+            categoriesHandler.articleHasCategory(
+              candidate,
+              category.data.path,
+            )),
+      ),
+  )
+  .slice(0, 3 - selectedTagRelatedArticles.length);
+const relatedArticles = [
+  ...selectedTagRelatedArticles,
+  ...categoryFallbackArticles,
+];
 ---
 
 <BaseLayout entry={article}>
@@ -27,34 +88,25 @@ const { Content, remarkPluginFrontmatter } = await render(article);
   />
   <ContentLayout>
     <Content />
-    <div
-      class="mt-12 p-6 border border-warning/30 bg-warning/5 rounded-xl text-sm italic text-base-content/80"
-    >
-      <div
-        class="flex items-center gap-2 mb-2 text-warning font-bold not-italic"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="size-5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
-          ></path>
-          <path d="M12 9v4"></path>
-          <path d="M12 17h.01"></path>
-        </svg>
-        <span>内容说明</span>
-      </div>
-      <p>
-        本文会尽量区分已确认事实、公司声称、媒体报道、分析、推论与情景。内容用于信息分享与研究讨论，不构成投资、法律或其他专业建议；请结合原始信源独立判断。
-      </p>
-    </div>
+    {
+      relatedArticles.length > 0 && (
+        <section class="not-prose mt-12 border-t border-base-300 pt-8">
+          <h2 class="mb-5 text-2xl font-bold text-base-content">相关阅读</h2>
+          <div class="flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain pb-3">
+            {relatedArticles.map((relatedArticle, index) => (
+              <div class="flex-[0_0_clamp(15rem,30%,24rem)] snap-start">
+                <NewsCard
+                  article={relatedArticle}
+                  index={index}
+                  showDescription={false}
+                  showMetadata={false}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
     <GiscusComments term={article.data.title} />
   </ContentLayout>
 </BaseLayout>

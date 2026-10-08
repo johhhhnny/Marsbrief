@@ -12,7 +12,7 @@ category:
   - daily
   - policy
 tags:
-  - Policy
+  - policy
   - autonomy
   - tesla
   - fsd

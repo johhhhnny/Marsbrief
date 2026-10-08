@@ -9,6 +9,7 @@ type Props = {
   article: CollectionEntry<"articles">;
   index: number;
   showDescription?: boolean;
+  showMetadata?: boolean;
   clampTitle?: boolean;
 };
 
@@ -16,6 +17,7 @@ const {
   article,
   index,
   showDescription = true,
+  showMetadata = true,
   clampTitle = true,
 } = Astro.props;
 
@@ -62,19 +64,21 @@ const imageProps =
         </p>
       )
     }
-    <div class="flex items-center text-xs text-base-content/80 mt-2">
-      <span class="text-xs text-primary dark:text-secondary">
-        {
-          categories
-            .map((category) => category?.data.title)
-            .filter(Boolean)
-            .join("、")
-        }
-      </span>
-      <Divider />
-      <span class="text-xs text-base-content/80"
-        >{remarkPluginFrontmatter.minutesRead}</span
-      >
-    </div>
+    {
+      showMetadata && (
+        <div class="flex items-center text-xs text-base-content/80 mt-2">
+          <span class="text-xs text-primary dark:text-secondary">
+            {categories
+              .map((category) => category?.data.title)
+              .filter(Boolean)
+              .join("、")}
+          </span>
+          <Divider />
+          <span class="text-xs text-base-content/80">
+            {remarkPluginFrontmatter.minutesRead}
+          </span>
+        </div>
+      )
+    }
   </div>
 </article>
