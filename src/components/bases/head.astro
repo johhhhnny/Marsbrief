@@ -47,7 +47,7 @@ const OGImage = new URL(meta.ogImage, Astro.url).href;
   </script>
 
   {
-    import.meta.env.PROD && (
+    import.meta.env.PROD && import.meta.env.PUBLIC_ENABLE_GA === "true" && (
       <>
         <script
           is:inline

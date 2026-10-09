@@ -16,11 +16,15 @@ export const SITE = {
 export const NAVIGATION_LINKS: Link[] = [
   {
     href: "/categories/log",
-    text: "每日精选",
+    text: "每日简报",
   },
   {
     href: "/categories/analysis",
     text: "深度分析",
+  },
+  {
+    href: "/categories/story",
+    text: "特别故事",
   },
 ];
 
