@@ -22,11 +22,6 @@ const categories = await categoriesHandler.allCategoriesForArticle(article);
 const primaryCategory = categories.find((category) => category);
 const authors = await authorsHandler.getAuthors(article.data.authors);
 const tags = await tagsHandler.tagsForArticle(article);
-
-const imageProps =
-  typeof article.data.cover === "string"
-    ? { src: article.data.cover, inferSize: true as const }
-    : { src: article.data.cover };
 ---
 
 <section
@@ -35,14 +30,28 @@ const imageProps =
   <div
     class="container px-0 max-w-5xl lg:mt-4 overflow-hidden aspect-[20/9] lg:rounded-md"
   >
-    <Picture
-      {...imageProps}
-      alt="article"
-      layout="full-width"
-      loading={"eager"}
-      formats={["avif", "webp"]}
-      class="w-full h-full object-center"
-    />
+    {
+      typeof article.data.cover === "string" ? (
+        <Picture
+          src={article.data.cover}
+          inferSize
+          alt="article"
+          layout="full-width"
+          loading="eager"
+          formats={["avif", "webp"]}
+          class="w-full h-full object-center"
+        />
+      ) : (
+        <Picture
+          src={article.data.cover}
+          alt="article"
+          layout="full-width"
+          loading="eager"
+          formats={["avif", "webp"]}
+          class="w-full h-full object-center"
+        />
+      )
+    }
   </div>
   <div class="container my-4 max-w-5xl lg:hidden flex items-center gap-2">
     <ResourcesAdd size="16" />
@@ -113,13 +122,25 @@ const imageProps =
                 >
                   <div class="avatar">
                     <div class="w-8 rounded-full">
-                      {author.data.avatar && (
+                      {typeof author.data.avatar === "string" ? (
+                        <Image
+                          src={author.data.avatar}
+                          inferSize
+                          alt="author"
+                          width={48}
+                          height={48}
+                          loading={"eager"}
+                          format="webp"
+                          layout="constrained"
+                          quality={80}
+                        />
+                      ) : (
                         <Image
                           src={author.data.avatar}
                           alt="author"
                           width={48}
                           height={48}
-                          loading={"eager"}
+                          loading="eager"
                           format="webp"
                           layout="constrained"
                           quality={80}

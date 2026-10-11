@@ -23,11 +23,6 @@ const {
 
 const { remarkPluginFrontmatter } = await render(article);
 const categories = await categoriesHandler.allCategoriesForArticle(article);
-
-const imageProps =
-  typeof article.data.cover === "string"
-    ? { src: article.data.cover, inferSize: true as const }
-    : { src: article.data.cover };
 ---
 
 <article
@@ -35,15 +30,26 @@ const imageProps =
 >
   <div class="aspect-video overflow-hidden rounded-md">
     <a href={`/articles/${article.id}`} class="block h-full">
-      <Image
-        {...imageProps}
-        alt={article.data.cover_alt
-          ? article.data.cover_alt
-          : article.data.title}
-        loading={index < 3 ? "eager" : "lazy"}
-        layout="constrained"
-        class="w-full h-full object-cover"
-      />
+      {
+        typeof article.data.cover === "string" ? (
+          <Image
+            src={article.data.cover}
+            inferSize
+            alt={article.data.cover_alt || article.data.title}
+            loading={index < 3 ? "eager" : "lazy"}
+            layout="constrained"
+            class="w-full h-full object-cover"
+          />
+        ) : (
+          <Image
+            src={article.data.cover}
+            alt={article.data.cover_alt || article.data.title}
+            loading={index < 3 ? "eager" : "lazy"}
+            layout="constrained"
+            class="w-full h-full object-cover"
+          />
+        )
+      }
     </a>
   </div>
   <div class="flex flex-col flex-1">

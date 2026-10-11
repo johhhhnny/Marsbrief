@@ -13,11 +13,6 @@ type Props = {
 
 const { article, isLast, coverFirst = false } = Astro.props;
 const categories = await categoriesHandler.allCategoriesForArticle(article);
-
-const imageProps =
-  typeof article.data.cover === "string"
-    ? { src: article.data.cover, inferSize: true as const }
-    : { src: article.data.cover };
 ---
 
 <li
@@ -36,15 +31,26 @@ const imageProps =
     ]}
   >
     <div class="w-full lg:w-60 aspect-video">
-      <Image
-        {...imageProps}
-        alt={article.data.cover_alt
-          ? article.data.cover_alt
-          : article.data.title}
-        layout="constrained"
-        loading={"eager"}
-        class="aspect-video rounded w-full h-full"
-      />
+      {
+        typeof article.data.cover === "string" ? (
+          <Image
+            src={article.data.cover}
+            inferSize
+            alt={article.data.cover_alt || article.data.title}
+            layout="constrained"
+            loading="eager"
+            class="aspect-video rounded w-full h-full"
+          />
+        ) : (
+          <Image
+            src={article.data.cover}
+            alt={article.data.cover_alt || article.data.title}
+            layout="constrained"
+            loading="eager"
+            class="aspect-video rounded w-full h-full"
+          />
+        )
+      }
     </div>
     <div class="flex-1 space-y-3">
       <h3

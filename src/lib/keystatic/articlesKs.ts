@@ -3,6 +3,7 @@ import { authorsOptions } from "./authorsKs";
 import { categoriesOptions } from "./categoriesKs";
 import { checkboxGridMultiselect } from "./checkboxGridMultiselect";
 import { embedMedia } from "./embedMedia";
+import { internalLinkComponents } from "./internalLinks";
 import { tagsOptions } from "./tagsKs";
 
 const publishedTimeField = fields.datetime({
@@ -102,7 +103,7 @@ export const articlesKs = collection({
     content: fields.mdx({
       label: "Content（内容）",
       extension: "md",
-      components: { EmbedMedia: embedMedia },
+      components: { EmbedMedia: embedMedia, ...internalLinkComponents },
       options: {
         image: {
           directory: "src/assets/images/articles",

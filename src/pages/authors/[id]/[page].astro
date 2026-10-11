@@ -32,7 +32,7 @@ const basePath = `${pathname[1]}/${pathname[2]}`;
 const entry = await getEntry("views", "author");
 const author = await authorsHandler.findAuthor(params.id);
 
-if (!entry) {
+if (!entry || !author) {
   return Astro.redirect("/404");
 }
 

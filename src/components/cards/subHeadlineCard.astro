@@ -15,11 +15,6 @@ const { article, isLast, isFirst } = Astro.props;
 
 const { remarkPluginFrontmatter } = await render(article);
 const categories = await categoriesHandler.allCategoriesForArticle(article);
-
-const imageProps =
-  typeof article.data.cover === "string"
-    ? { src: article.data.cover, inferSize: true as const }
-    : { src: article.data.cover };
 ---
 
 <article
@@ -64,13 +59,27 @@ const imageProps =
   <div
     class="overflow-hidden w-[165px] h-[125px] md:w-[120px] md:h-full shrink-0"
   >
-    <Image
-      {...imageProps}
-      alt={article.data.cover_alt ? article.data.cover_alt : article.data.title}
-      loading="eager"
-      widths={[120, 320]}
-      layout="constrained"
-      class="object-cover rounded w-full h-full"
-    />
+    {
+      typeof article.data.cover === "string" ? (
+        <Image
+          src={article.data.cover}
+          inferSize
+          alt={article.data.cover_alt || article.data.title}
+          loading="eager"
+          widths={[120, 320]}
+          layout="constrained"
+          class="object-cover rounded w-full h-full"
+        />
+      ) : (
+        <Image
+          src={article.data.cover}
+          alt={article.data.cover_alt || article.data.title}
+          loading="eager"
+          widths={[120, 320]}
+          layout="constrained"
+          class="object-cover rounded w-full h-full"
+        />
+      )
+    }
   </div>
 </article>

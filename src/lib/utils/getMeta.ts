@@ -30,7 +30,10 @@ export const getMeta = async (
         title: `${capitalizeFirstLetter(collection.data.title)} - ${SITE.title}`,
         metaTitle: capitalizeFirstLetter(collection.data.title),
         description: collection.data.description,
-        ogImage: collection.data.cover.src,
+        ogImage:
+          typeof collection.data.cover === "string"
+            ? collection.data.cover
+            : collection.data.cover.src,
         ogImageAlt: collection.data.cover_alt || collection.data.title,
         publishedTime: normalizeDate(collection.data.publishedTime),
         lastModified: remarkPluginFrontmatter.lastModified,

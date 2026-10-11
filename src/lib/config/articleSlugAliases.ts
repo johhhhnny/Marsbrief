@@ -1,0 +1,1 @@
+export const articleSlugAliases: Record<string, string> = {};

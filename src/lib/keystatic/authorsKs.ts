@@ -25,6 +25,7 @@ export const authorsKs = collection({
       label: "Avatar（头像）",
       directory: "src/assets/images/authors",
       publicPath: "@assets/images/authors",
+      validation: { isRequired: true },
     }),
     bio: fields.text({ label: "Bio（简介）" }),
     social: fields.array(
