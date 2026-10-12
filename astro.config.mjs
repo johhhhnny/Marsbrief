@@ -1,6 +1,7 @@
 // @ts-check
 import { writeFile } from "node:fs/promises";
 import { defineConfig } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -84,6 +85,7 @@ integrations.push({
 export default defineConfig({
   site: SITE.url,
   base: SITE.basePath,
+  adapter: cloudflare({ imageService: "compile" }),
   markdown: {
     remarkPlugins: [
       [internalLinksRemark, { pages: internalLinkPages, basePath: SITE.basePath }],
