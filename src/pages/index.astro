@@ -1,61 +1,267 @@
 ---
-import BaseLayout from "@/layouts/base.astro"; // 导入基础布局组件（包含 html, head, header, footer 等全局结构）
-import { getEntry } from "astro:content"; // 导入 Astro 内容集合 API，用于读取特定的 markdown/json 数据
-import Headlines from "@/pages/_home/headlines.astro"; // 导入首页专属的“头条”组件
-import CategorySection from "@/pages/_home/categorySection.astro";
+import { Image } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+import TagCloud from "@/components/shared/tag-cloud.astro";
+import BaseLayout from "@/layouts/base.astro";
+import { articlesHandler } from "@/lib/handlers/articles";
+import { tagsHandler } from "@/lib/handlers/tags";
 
-// 从 "views" 内容集合中获取标识为 "home" 的单页元数据配置（比如 SEO 相关的 title、description、OG 图片等）
-const entry = await getEntry("views", "home");
+const [homeEntry, allArticles, categories, availableTags] = await Promise.all([
+  getEntry("views", "home"),
+  articlesHandler.allArticles(),
+  getCollection("categories"),
+  tagsHandler.allTagsWithArticleCounts(),
+]);
+if (!homeEntry) return Astro.redirect("/404");
 
-// 容错处理：如果没找到 views/home 数据，说明可能误删了配置文件，直接重定向到 404 页面
-if (!entry) {
-  return Astro.redirect("/404");
-}
+const heroArticle =
+  allArticles.find((article) => article.data.isMainHeadline) ?? allArticles[0];
+if (!heroArticle) throw new Error("首页至少需要一篇已发布文章。");
+
+const latestBriefs = allArticles
+  .filter((article) => article.id !== heroArticle.id)
+  .slice(0, 4);
+const displayedArticleIds = new Set([
+  heroArticle.id,
+  ...latestBriefs.map((article) => article.id),
+]);
+
+const inDepthArticles = allArticles
+  .filter(
+    (article) =>
+      !displayedArticleIds.has(article.id) &&
+      article.data.category.some(({ id }) => id === "analysis"),
+  )
+  .slice(0, 3);
+const depthGridClass =
+  inDepthArticles.length === 1
+    ? "md:mx-auto md:max-w-2xl"
+    : inDepthArticles.length === 2
+      ? "md:grid-cols-2"
+      : "md:grid-cols-2 lg:grid-cols-3";
+
+const categoryTitles = (article: (typeof allArticles)[number]) =>
+  article.data.category
+    .map(
+      ({ id }) => categories.find((category) => category.id === id)?.data.title,
+    )
+    .filter((title): title is string => Boolean(title))
+    .join("、");
+
+const tagTitles = new Map(
+  availableTags.map(({ slug, tag }) => [slug, tag.data.title]),
+);
+const articleTopic = (article: (typeof allArticles)[number]) => {
+  const firstTag = article.data.tags[0]?.trim().toLowerCase();
+  return (
+    (firstTag && tagTitles.get(firstTag)) || categoryTitles(article) || "快讯"
+  );
+};
+
+const formatPublishedAt = (
+  value: Date | string,
+  options: Intl.DateTimeFormatOptions,
+) =>
+  new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    ...options,
+  }).format(value instanceof Date ? value : new Date(value));
+
+const featuredTagSlugs = [...availableTags]
+  .sort(
+    (left, right) =>
+      right.count - left.count ||
+      left.tag.data.title.localeCompare(right.tag.data.title),
+  )
+  .slice(0, 6)
+  .map(({ slug }) => slug);
 ---
 
-<BaseLayout entry={entry}>
-  <section class="bg-base-100 text-base-content">
-    <div class="w-full overflow-hidden border-b border-white/10">
-      <img
-        src="/brand/marsbrief-hero.png"
-        alt="火星简报 MARS BRIEF：地球、火星与飞向未来的火箭"
-        class="block h-auto w-full"
-      />
-    </div>
-  </section>
-  <div class="container grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-    <section class="text-center">
-      <div class="py-10 md:py-14">
-        <div class="mx-auto max-w-3xl">
-          <h1
-            class="mt-4 text-4xl font-serif font-bold leading-tight md:text-5xl"
+<BaseLayout entry={homeEntry}>
+  <main class="container mx-auto max-w-6xl space-y-12 px-4 py-6 lg:py-10">
+    <section>
+      <div
+        class="flex items-center justify-between pb-3 mb-6 border-b border-base-300"
+      >
+        <div class="flex items-center gap-2">
+          <span
+            class="inline-block size-2.5 rounded-full bg-red-600 animate-pulse"
+          ></span>
+          <h2
+            class="text-sm font-bold uppercase tracking-wider text-base-content/70"
           >
-            看见新闻背后的世界
-          </h1>
-          <p class="mt-5 max-w-2xl text-lg leading-8 text-base-content/75">
-            从 Musk
-            出发，看懂正在形成的未来世界。我们不只是报道新闻，我们提供关于科技、商业与未来的高密度情报。
-          </p>
-          <div class="mt-7 flex flex-wrap justify-center gap-3">
-            <a class="btn btn-primary" href="/articles">探索深度分析</a>
-            <a
-              class="btn btn-outline border-base-content/70 text-base-content hover:border-base-content hover:bg-base-content hover:text-base-100"
-              href="https://marsbrief.net/rss.xml">订阅火星简报</a
-            >
-          </div>
+            焦点与快讯
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {
+          heroArticle && (
+            <div class="lg:col-span-8 group">
+              <a
+                href={`/articles/${heroArticle.id}`}
+                class="mb-4 block aspect-[16/9] overflow-hidden rounded-md bg-base-200"
+              >
+                {heroArticle.data.cover &&
+                  (typeof heroArticle.data.cover === "string" ? (
+                    <Image
+                      src={heroArticle.data.cover}
+                      inferSize
+                      alt={heroArticle.data.cover_alt || heroArticle.data.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="eager"
+                    />
+                  ) : (
+                    <Image
+                      src={heroArticle.data.cover}
+                      alt={heroArticle.data.cover_alt || heroArticle.data.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="eager"
+                    />
+                  ))}
+              </a>
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 text-xs">
+                  <span class="badge badge-primary badge-sm font-semibold">
+                    {categoryTitles(heroArticle) || "每日简报"}
+                  </span>
+                  <span class="text-base-content/60 font-mono">
+                    {formatPublishedAt(heroArticle.data.publishedTime, {
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                </div>
+                <h1 class="text-2xl lg:text-3xl font-extrabold tracking-tight text-base-content group-hover:text-primary transition-colors leading-snug">
+                  <a href={`/articles/${heroArticle.id}`}>
+                    {heroArticle.data.title}
+                  </a>
+                </h1>
+                <p class="text-base-content/75 text-sm lg:text-base leading-relaxed line-clamp-2">
+                  {heroArticle.data.description}
+                </p>
+              </div>
+            </div>
+          )
+        }
+
+        <div
+          class="lg:col-span-4 flex flex-col divide-y divide-base-200 border-t lg:border-t-0 lg:border-l lg:border-base-200 lg:pl-8"
+        >
+          <h3
+            class="text-xs font-bold text-base-content/50 uppercase tracking-widest pb-3"
+          >
+            最新要闻
+          </h3>
+          {
+            latestBriefs.map((brief) => (
+              <article class="py-4 first:pt-3 last:pb-0 group">
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-xs text-primary font-medium">
+                    {articleTopic(brief)}
+                  </span>
+                  <span class="text-[11px] text-base-content/40 font-mono">
+                    {formatPublishedAt(brief.data.publishedTime, {
+                      month: "numeric",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </span>
+                </div>
+                <h4 class="text-sm font-bold text-base-content group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                  <a href={`/articles/${brief.id}`}>{brief.data.title}</a>
+                </h4>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
-    <div>
-      <Headlines />
-    </div>
-  </div>
-  <CategorySection
-    categoryId="daily"
-    title="每日简报"
-    limit={6}
-    showDescription={false}
-    clampTitle={false}
-  />
-  <CategorySection categoryId="analysis" title="深度分析" limit={3} />
+
+    {
+      inDepthArticles.length > 0 && (
+        <section>
+          <div class="flex items-center justify-between pb-3 mb-6 border-b border-base-300">
+            <h2 class="text-lg font-bold tracking-tight text-base-content flex items-center gap-2">
+              <span>深度分析</span>
+            </h2>
+            <a
+              href="/categories/analysis/"
+              class="text-xs text-primary hover:underline font-medium"
+            >
+              浏览全部 &rarr;
+            </a>
+          </div>
+
+          <div class={`grid grid-cols-1 gap-6 ${depthGridClass}`}>
+            {inDepthArticles.map((article) => (
+              <article class="group flex h-full flex-col overflow-hidden rounded-md border border-base-200 bg-base-100 transition-shadow hover:shadow-lg">
+                <a
+                  href={`/articles/${article.id}`}
+                  class="aspect-video w-full overflow-hidden bg-base-200 block"
+                >
+                  {article.data.cover &&
+                    (typeof article.data.cover === "string" ? (
+                      <Image
+                        src={article.data.cover}
+                        inferSize
+                        alt={article.data.cover_alt || article.data.title}
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Image
+                        src={article.data.cover}
+                        alt={article.data.cover_alt || article.data.title}
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ))}
+                </a>
+                <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+                  <div>
+                    <span class="text-[11px] uppercase tracking-wider font-semibold text-primary mb-1 block">
+                      {articleTopic(article)}
+                    </span>
+                    <h3 class="font-bold text-base text-base-content group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                      <a href={`/articles/${article.id}`}>
+                        {article.data.title}
+                      </a>
+                    </h3>
+                    <p class="text-xs text-base-content/70 mt-2 line-clamp-2 leading-relaxed">
+                      {article.data.description}
+                    </p>
+                  </div>
+                  <div class="text-[11px] text-base-content/40 font-mono border-t border-base-200 pt-2">
+                    {formatPublishedAt(article.data.publishedTime, {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="border-y border-base-300 py-8">
+      <div class="max-w-2xl mx-auto text-center space-y-3">
+        <h3 class="text-lg font-bold text-base-content">按核心议题探索</h3>
+        <p class="text-xs text-base-content/70">
+          围绕科技、商业与未来，继续发现值得关注的议题。
+        </p>
+        <TagCloud
+          tags={availableTags}
+          visibleSlugs={featuredTagSlugs}
+          order="count"
+          class="flex flex-wrap items-baseline justify-center gap-x-5 gap-y-3 pt-2"
+        />
+      </div>
+    </section>
+  </main>
 </BaseLayout>

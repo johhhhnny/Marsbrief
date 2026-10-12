@@ -1,0 +1,99 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type TagItem = {
+  tag: CollectionEntry<"tags">;
+  slug: string;
+  count: number;
+};
+
+type Props = {
+  tags: TagItem[];
+  visibleSlugs?: string[];
+  labels?: Record<string, string>;
+  order?: "source" | "count";
+  class?: string;
+};
+
+const {
+  tags,
+  visibleSlugs,
+  labels = {},
+  order = "source",
+  class:
+    className = "flex w-full list-none flex-wrap items-baseline justify-center gap-x-8 gap-y-6 py-8",
+} = Astro.props;
+
+const visibleSlugSet = visibleSlugs ? new Set(visibleSlugs) : null;
+const filteredTags = visibleSlugSet
+  ? tags.filter(({ slug }) => visibleSlugSet.has(slug))
+  : tags;
+const visibleTags =
+  order === "count"
+    ? [...filteredTags].sort(
+        (left, right) =>
+          right.count - left.count ||
+          left.tag.data.title.localeCompare(right.tag.data.title),
+      )
+    : filteredTags;
+const topTags = [...tags]
+  .sort(
+    (left, right) =>
+      right.count - left.count ||
+      left.tag.data.title.localeCompare(right.tag.data.title),
+  )
+  .slice(0, 5);
+const topTagRanks = new Map(topTags.map(({ slug }, index) => [slug, index]));
+const articleCounts = tags.map(({ count }) => count);
+const minArticleCount = articleCounts.length ? Math.min(...articleCounts) : 0;
+const maxArticleCount = articleCounts.length ? Math.max(...articleCounts) : 0;
+const minLogCount = Math.log1p(minArticleCount);
+const logCountRange = Math.log1p(maxArticleCount) - minLogCount;
+const topTagColors = [
+  "text-primary",
+  "text-secondary",
+  "text-accent",
+  "text-success",
+  "text-info",
+];
+
+const fontSizeForCount = (count: number) => {
+  const weight = logCountRange
+    ? (Math.log1p(count) - minLogCount) / logCountRange
+    : 0;
+  return (1 + weight * 0.75).toFixed(2);
+};
+---
+
+<ul class={className}>
+  {
+    visibleTags.map(({ tag, slug, count }) => {
+      const rank = topTagRanks.get(slug);
+      const colorClass =
+        rank === undefined ? "text-base-content" : topTagColors[rank];
+      const label = labels[slug] ?? tag.data.title;
+
+      return (
+        <li class="flex items-baseline">
+          <a
+            href={`/tags/${slug}/1/`}
+            class={`tag-cloud-link ${rank === undefined ? "font-semibold" : "font-bold"} ${colorClass} hover:text-primary hover:underline`}
+            style={`--tag-size: ${fontSizeForCount(count)}rem`}
+            aria-label={`${label}，${count} 篇文章`}
+          >
+            {label}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .tag-cloud-link {
+    display: inline-block;
+    font-size: var(--tag-size);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+</style>

@@ -13,6 +13,14 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout entry={entry}>
+  <section class="w-full overflow-hidden border-b border-base-300">
+    <img
+      src="/brand/marsbrief-hero.png"
+      alt="火星简报 MARS BRIEF：地球、火星与飞向未来的火箭"
+      class="block h-auto w-full"
+      fetchpriority="high"
+    />
+  </section>
   <ContentLayout>
     <Content />
   </ContentLayout>
