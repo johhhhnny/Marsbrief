@@ -34,7 +34,11 @@ function formatHref(href: string, shouldAppendPage: boolean) {
       : "after:bg-transparent",
   ]}
 >
-  <a href={formatHref(item.href, appendPage)} aria-label={item.text}>
+  <a
+    href={formatHref(item.href, appendPage)}
+    aria-label={item.text}
+    class="font-serif"
+  >
     {item.text}
   </a>
 </li>

@@ -6,11 +6,9 @@ import Icon from "../bases/icon.astro";
 const categories = await categoriesHandler.allCategories();
 ---
 
-<footer
-  class="footer border-t border-primary-content/80 dark:border-primary-content/20 py-6"
->
+<footer class="footer py-6">
   <div class="container">
-    <div class="flex flex-col gap-4">
+    <div class="flex w-full flex-col gap-4 border-t border-base-300 pt-6">
       <aside class="flex items-center gap-2">
         <img
           src="/brand/marsbrief-logo.png"
@@ -39,7 +37,7 @@ const categories = await categoriesHandler.allCategories();
         }
       </nav>
     </div>
-    <div class="divider w-full h-1"></div>
+    <div class="my-6 w-full border-t border-base-300"></div>
     <div class="flex w-full flex-col gap-4">
       <nav>
         <div class="flex gap-4">

@@ -2,6 +2,7 @@ import { readdirSync } from "node:fs";
 import { relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { slug } from "github-slugger";
+import { parseFragment } from "parse5";
 
 const articlesDirectory = fileURLToPath(
   new URL("../../content/articles/", import.meta.url),
@@ -27,6 +28,24 @@ function attributeValue(node, name) {
     (candidate) => candidate.type === "mdxJsxAttribute" && candidate.name === name,
   );
   return typeof attribute?.value === "string" ? attribute.value : null;
+}
+
+function rawHtmlComponent(node) {
+  if (node.type !== "html") return null;
+
+  const element = parseFragment(node.value).childNodes.find(
+    (child) => typeof child.tagName === "string",
+  );
+  if (!element || !["articlelink", "pagelink"].includes(element.tagName)) {
+    return null;
+  }
+
+  return {
+    name: element.tagName === "articlelink" ? "ArticleLink" : "PageLink",
+    attributes: Object.fromEntries(
+      element.attrs.map(({ name, value }) => [name, value]),
+    ),
+  };
 }
 
 function withBasePath(path, basePath) {
@@ -61,17 +80,21 @@ export default function internalLinksRemark({
       if (!Array.isArray(parent.children)) return;
 
       parent.children = parent.children.map((node) => {
+        const rawComponent = rawHtmlComponent(node);
+        const componentName = rawComponent?.name ?? node.name;
         if (
-          (node.type === "mdxJsxTextElement" ||
-            node.type === "mdxJsxFlowElement") &&
-          (node.name === "ArticleLink" || node.name === "PageLink")
+          ((node.type === "mdxJsxTextElement" ||
+            node.type === "mdxJsxFlowElement") || rawComponent) &&
+          (componentName === "ArticleLink" || componentName === "PageLink")
         ) {
-          const text = attributeValue(node, "text");
+          const getAttribute = (name) =>
+            rawComponent?.attributes[name] ?? attributeValue(node, name);
+          const text = getAttribute("text");
           if (!text) fail(file, node, "内链缺少链接文字。");
 
           let targetPath;
-          if (node.name === "ArticleLink") {
-            const articleId = attributeValue(node, "article");
+          if (componentName === "ArticleLink") {
+            const articleId = getAttribute("article");
             let resolvedArticleId = articleId;
             const visitedAliases = new Set();
             while (articleSlugAliases[resolvedArticleId]) {
@@ -90,7 +113,7 @@ export default function internalLinksRemark({
               .join("/");
             targetPath = `/articles/${encodedId}/`;
           } else {
-            const pageKey = attributeValue(node, "page");
+            const pageKey = getAttribute("page");
             targetPath = pagePaths.get(pageKey);
             if (!targetPath) {
               fail(file, node, `找不到目标页面「${pageKey || "未选择"}」。`);

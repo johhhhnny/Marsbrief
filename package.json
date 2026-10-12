@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "clean": "rm -rf .astro dist node_modules/.vite",
+    "clean": "rm -rf .astro dist node_modules/.vite node_modules/.astro",
     "clean:dev": "npm run clean && npm run dev"
   },
   "dependencies": {
