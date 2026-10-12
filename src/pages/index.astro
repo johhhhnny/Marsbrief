@@ -78,7 +78,9 @@ const featuredTagSlugs = [...availableTags]
 ---
 
 <BaseLayout entry={homeEntry}>
-  <main class="container mx-auto max-w-6xl space-y-12 px-4 py-6 lg:py-10">
+  <div
+    class="container mx-auto max-w-6xl space-y-12 px-4 pt-4 pb-6 lg:pt-6 lg:pb-10"
+  >
     <section>
       <div
         class="flex items-center justify-between pb-3 mb-6 border-b border-base-300"
@@ -88,7 +90,7 @@ const featuredTagSlugs = [...availableTags]
             class="inline-block size-2.5 rounded-full bg-red-600 animate-pulse"
           ></span>
           <h2
-            class="text-sm font-bold uppercase tracking-wider text-base-content/70"
+            class="text-base font-bold uppercase tracking-wider text-base-content"
           >
             焦点与快讯
           </h2>
@@ -101,7 +103,7 @@ const featuredTagSlugs = [...availableTags]
             <div class="lg:col-span-8 group">
               <a
                 href={`/articles/${heroArticle.id}`}
-                class="mb-4 block aspect-[16/9] overflow-hidden rounded-md bg-base-200"
+                class="mb-4 block aspect-[16/9] overflow-hidden rounded-md bg-base-200 lg:aspect-[2/1]"
               >
                 {heroArticle.data.cover &&
                   (typeof heroArticle.data.cover === "string" ? (
@@ -126,7 +128,7 @@ const featuredTagSlugs = [...availableTags]
                   <span class="badge badge-primary badge-sm font-semibold">
                     {categoryTitles(heroArticle) || "每日简报"}
                   </span>
-                  <span class="text-base-content/60 font-mono">
+                  <span class="text-base-content/70 font-mono">
                     {formatPublishedAt(heroArticle.data.publishedTime, {
                       month: "long",
                       day: "numeric",
@@ -138,7 +140,7 @@ const featuredTagSlugs = [...availableTags]
                     {heroArticle.data.title}
                   </a>
                 </h1>
-                <p class="text-base-content/75 text-sm lg:text-base leading-relaxed line-clamp-2">
+                <p class="text-base-content/85 text-sm lg:text-base leading-relaxed line-clamp-2">
                   {heroArticle.data.description}
                 </p>
               </div>
@@ -150,7 +152,7 @@ const featuredTagSlugs = [...availableTags]
           class="lg:col-span-4 flex flex-col divide-y divide-base-200 border-t lg:border-t-0 lg:border-l lg:border-base-200 lg:pl-8"
         >
           <h3
-            class="text-xs font-bold text-base-content/50 uppercase tracking-widest pb-3"
+            class="text-sm font-bold text-base-content/70 uppercase tracking-wider pb-3"
           >
             最新要闻
           </h3>
@@ -161,7 +163,7 @@ const featuredTagSlugs = [...availableTags]
                   <span class="text-xs text-primary font-medium">
                     {articleTopic(brief)}
                   </span>
-                  <span class="text-[11px] text-base-content/40 font-mono">
+                  <span class="text-xs text-base-content/60 font-mono">
                     {formatPublishedAt(brief.data.publishedTime, {
                       month: "numeric",
                       day: "numeric",
@@ -170,7 +172,7 @@ const featuredTagSlugs = [...availableTags]
                     })}
                   </span>
                 </div>
-                <h4 class="text-sm font-bold text-base-content group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                <h4 class="text-base font-bold text-base-content group-hover:text-primary transition-colors leading-snug line-clamp-2">
                   <a href={`/articles/${brief.id}`}>{brief.data.title}</a>
                 </h4>
               </article>
@@ -230,11 +232,11 @@ const featuredTagSlugs = [...availableTags]
                         {article.data.title}
                       </a>
                     </h3>
-                    <p class="text-xs text-base-content/70 mt-2 line-clamp-2 leading-relaxed">
+                    <p class="text-sm text-base-content/85 mt-2 line-clamp-2 leading-relaxed">
                       {article.data.description}
                     </p>
                   </div>
-                  <div class="text-[11px] text-base-content/40 font-mono border-t border-base-200 pt-2">
+                  <div class="text-xs text-base-content/60 font-mono border-t border-base-200 pt-2">
                     {formatPublishedAt(article.data.publishedTime, {
                       year: "numeric",
                       month: "long",
@@ -252,7 +254,7 @@ const featuredTagSlugs = [...availableTags]
     <section class="border-y border-base-300 py-8">
       <div class="max-w-2xl mx-auto text-center space-y-3">
         <h3 class="text-lg font-bold text-base-content">按核心议题探索</h3>
-        <p class="text-xs text-base-content/70">
+        <p class="text-xs text-base-content/80">
           围绕科技、商业与未来，继续发现值得关注的议题。
         </p>
         <TagCloud
@@ -263,5 +265,5 @@ const featuredTagSlugs = [...availableTags]
         />
       </div>
     </section>
-  </main>
+  </div>
 </BaseLayout>
